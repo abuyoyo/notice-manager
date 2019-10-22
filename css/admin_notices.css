@@ -1,0 +1,59 @@
+:not(.wrap) ~ div.updated,
+:not(.wrap) ~ div.error,
+:not(.wrap) ~ div.notice,
+:not(.wrap) ~ div.update-nag{
+	margin: 5px 20px 15px 2px;
+}
+
+
+
+#meta-link-notices-wrap {
+	margin: 0;
+	/* padding: 8px 20px 12px; */
+	position: relative;
+}
+
+#meta-link-notices-wrap > button.notice-dismiss {
+    position: relative;
+    display: flex;
+}
+
+.notice_container{
+	padding: 9px 0px 1px 0px;
+	background-color: gainsboro;
+}
+
+.notice_container.empty{
+	padding: 0;
+}
+
+.notice_container > div.updated,
+.notice_container > div.error,
+.notice_container > div.notice,
+.notice_container > div.update-nag{
+	margin: 5px 12px 15px 12px;
+}
+
+
+/* ngfb update-nag override */
+div.ngfb-notice.update-nag {
+	display: none !important; /* not working - need to remove with js */
+	/* restore normal formatting */
+	/* margin-top: 25px; */
+    border: 0px;
+    /* border-left: 4px solid #ffba00; */
+    border-left: 4px solid #00a0d2;
+}
+
+.ngfb-notice.update-nag .notice-message {
+    max-width: 100%;
+    padding: 0;
+}
+
+.ngfb-notice.update-nag p, .ngfb-notice.update-nag ul, .ngfb-notice.update-nag ol {
+	text-align: left !important;
+    font-size: 13px !important;
+    line-height: 1.5;
+    margin: 1em 0 !important;
+	opacity: 0.5;
+}
