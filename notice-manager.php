@@ -2,7 +2,7 @@
 /**
  * Plugin Name: abuyoyo / Notice Manager
  * Description: Manage notices on WordPress admin pages.
- * Version: 0.9
+ * Version: 0.10
  * Author: abuyoyo
  * Author URI: https://github.com/abuyoyo/
  */
