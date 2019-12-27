@@ -35,9 +35,9 @@
 		if ( $(this).hasClass('screen-meta-active') ){
 			$(window).scrollTop(true);
 		}else{
-			wait (500).then(function(){ //still jumpy sometimes - but scrolls to correct position 400 ~ 600
-				$(window).scrollTop(true);
-			});
+			// wait (500).then(function(){ //still jumpy sometimes - but scrolls to correct position 400 ~ 600
+			// 	$(window).scrollTop(true);
+			// });
 		}
 			
 	});
