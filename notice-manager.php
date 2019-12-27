@@ -1,10 +1,11 @@
 <?php
 /**
  * Plugin Name: abuyoyo / Notice Manager
- * Description: Manage notices on WordPress admin pages.
+ * Description: Manage notices on WordPress admin pages. Adds 'Notices' screen-meta-link.
  * Version: 0.10
  * Author: abuyoyo
  * Author URI: https://github.com/abuyoyo/
+ * Plugin URI: https://github.com/abuyoyo/notice-manager
  */
 if ( ! defined('ABSPATH') )
 	wp_die( 'No soup for you!' );
