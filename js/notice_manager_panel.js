@@ -6,6 +6,23 @@
 
 	//auto-open notice-panel for quick dismiss
 	$(document).ready(function(){
+
+		/**
+		 * Remove meta-links-notices if no notices on page
+		 * Remove screen-meta-links wrapper if no panels on page
+		 */
+		var notices = $( 'div.updated, div.error, div.notice, div.update-nag' ).not( '.inline, .below-h2' );
+		if ( ! notices.length ){
+			console.log('NO NOTICES');
+			$('#meta-link-notices-link-wrap').detach();
+			$('#meta-link-notices-wrap').detach();
+
+			if ( ! $('#screen-meta-links').children().length )
+				$('#screen-meta-links').detach();
+
+			return;
+		}
+
 		if (button.length){
 			panel.toggle();
 			button.addClass( 'screen-meta-active' );
