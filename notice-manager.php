@@ -59,6 +59,12 @@ class NoticeManager{
 		echo '<button type="button" class="notice-dismiss"><span class="screen-reader-text">' . __( 'Dismiss' ) . '</span><strong> Dismiss Notices</strong></button><div></div>' ;
 	}
 
+	/**
+	 * A plugin 'notice-manager' exists now on @link https://wordpress.org/plugins/
+	 * Disable update notifications completely for our plugin.
+	 * 
+	 * @todo - use update_checker to only upload our plugin from github
+	 */
 	function remove_update_notifications($value) {
 
 		if ( isset( $value ) && is_object( $value ) ) {
