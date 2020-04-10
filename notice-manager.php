@@ -16,7 +16,7 @@ new PluginCore(
 	[
 		'update_checker' => ['auth'=> $github_oauth],
 
-		'admin_menu_page' => [
+		'admin_page' => [
 			'parent'   => 'options',
 			'render'   => 'settings-page', // built-in settings page
 			'settings' => [
