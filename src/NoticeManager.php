@@ -31,6 +31,8 @@ class NoticeManager{
 		}else{
 			add_action( 'admin_init' , [ $this , 'register_notice_manager_panel' ] );
 		}
+
+		add_action('admin_print_footer_scripts', [$this,'admin_print_footer_scripts']);
 			
 
 		// we don't want to update wp-plugin registered with same name
@@ -41,6 +43,12 @@ class NoticeManager{
 		wp_enqueue_script( 'notice_manager_panel', NOTICE_MANAGER_URL . 'js/notice_manager_panel.js' , null, false , true );
 		wp_localize_script( 'notice_manager_panel', 'noticeManager', camelCaseKeys($this->options) );
 		wp_enqueue_style( 'admin_notices', NOTICE_MANAGER_URL . 'css/admin_notices.css' );
+	}
+
+	function admin_print_footer_scripts(){
+		
+		// echo '<script defer>var noticeManager=' .json_encode(camelCaseKeys($this->options)) .  ';</script>';
+		// echo '<script defer src="'. NOTICE_MANAGER_URL . 'js/notice_manager_panel.js' .'"></script>';
 	}
 	
 	function register_notice_manager_panel(){
@@ -66,7 +74,10 @@ class NoticeManager{
 		// button is a copy of is-dismissible button - for styling purposes only
 		// js functionality and listener -  js/notice_manager_meta_panel.js
 		echo '<div class="notice_container empty"></div>';
-		echo '<button type="button" class="notice-dismiss"><span class="screen-reader-text">' . __( 'Dismiss' ) . '</span><strong> Dismiss Notices</strong></button><div></div>' ;
+
+		// if auto_collect is ON - we don't need the button.
+		if (!$this->options['auto_collect'])
+			echo '<button type="button" class="notice-dismiss"><span class="screen-reader-text">' . __( 'Dismiss' ) . '</span><strong> Dismiss Notices</strong></button><div></div>' ;
 	}
 
 	/**
