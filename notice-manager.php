@@ -53,6 +53,7 @@ new PluginCore(
 	]
 );
 
+require_once 'src/utilities.php';
 require_once 'src/NoticeManager.php';
 
 
