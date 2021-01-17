@@ -76,7 +76,7 @@ class NoticeManager{
 		echo '<div class="notice_container empty"></div>';
 
 		// if auto_collect is ON - we don't need the button.
-		if (!$this->options['auto_collect'])
+		if ( empty( $this->options['auto_collect'] ) )
 			echo '<button type="button" class="notice-dismiss"><span class="screen-reader-text">' . __( 'Dismiss' ) . '</span><strong> Dismiss Notices</strong></button><div></div>' ;
 	}
 
