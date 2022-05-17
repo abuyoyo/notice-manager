@@ -34,9 +34,6 @@ class NoticeManager{
 
 		add_action('admin_print_footer_scripts', [$this,'admin_print_footer_scripts']);
 			
-
-		// we don't want to update wp-plugin registered with same name
-		// add_filter( 'site_transient_update_plugins', [ $this, 'remove_update_notifications' ] );
 	}
 	
 	function admin_enqueues(){
@@ -78,21 +75,6 @@ class NoticeManager{
 		// if auto_collect is ON - we don't need the button.
 		if ( empty( $this->options['auto_collect'] ) )
 			echo '<button type="button" class="notice-dismiss"><span class="screen-reader-text">' . __( 'Dismiss' ) . '</span><strong> Dismiss Notices</strong></button><div></div>' ;
-	}
-
-	/**
-	 * A plugin 'notice-manager' exists now on @link https://wordpress.org/plugins/
-	 * Disable update notifications completely for our plugin.
-	 * 
-	 * @todo - use update_checker to only upload our plugin from github
-	 */
-	function remove_update_notifications($value) {
-
-		if ( isset( $value ) && is_object( $value ) ) {
-			unset( $value->response[ NOTICE_MANAGER_BASENAME ] );
-		}
-	
-		return $value;
 	}
 
 }
