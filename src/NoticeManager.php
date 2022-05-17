@@ -32,20 +32,12 @@ class NoticeManager{
 			add_action( 'admin_init' , [ $this , 'register_notice_manager_panel' ] );
 		}
 
-		add_action('admin_print_footer_scripts', [$this,'admin_print_footer_scripts']);
-			
 	}
 	
 	function admin_enqueues(){
 		wp_enqueue_script( 'notice_manager_panel', NOTICE_MANAGER_URL . 'js/notice_manager_panel.js' , null, false , true );
 		wp_localize_script( 'notice_manager_panel', 'noticeManager', camelCaseKeys($this->options) );
 		wp_enqueue_style( 'admin_notices', NOTICE_MANAGER_URL . 'css/admin_notices.css' );
-	}
-
-	function admin_print_footer_scripts(){
-		
-		// echo '<script defer>var noticeManager=' .json_encode(camelCaseKeys($this->options)) .  ';</script>';
-		// echo '<script defer src="'. NOTICE_MANAGER_URL . 'js/notice_manager_panel.js' .'"></script>';
 	}
 	
 	function register_notice_manager_panel(){
