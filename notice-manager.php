@@ -60,11 +60,3 @@ require_once 'src/NoticeManager.php';
 add_action('plugins_loaded', function(){
 	new NoticeManager();
 });
-
-
-add_filter( 'wds_required_plugins', function($required){
-	$req_array = [
-		'screen-meta-links/screen-meta-links.php',
-	];
-	return array_merge( $required, $req_array );
-});
