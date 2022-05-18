@@ -52,10 +52,10 @@ class NoticeManager{
 	 * @uses screen-meta-links-api library
 	 */
 	function register_notice_manager_panel(){
-		if ( ! function_exists( 'add_screen_meta_link' ) )
+		if ( ! function_exists( 'wph_add_screen_meta_panel' ) )
 			return;
 
-		add_screen_meta_link(
+		wph_add_screen_meta_panel(
 			'meta-link-notices', // $id
 			'Notices', // $text
 			'', // $href - not used
