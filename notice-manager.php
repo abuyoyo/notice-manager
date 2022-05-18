@@ -17,7 +17,7 @@ use WPHelper\PluginCore;
 new PluginCore(
 	__FILE__,
 	[
-		'update_checker' => ['auth'=> $github_oauth],
+		'update_checker' => true,
 
 		'admin_page' => [
 			'parent'   => 'options',
