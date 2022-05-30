@@ -1,18 +1,22 @@
 <?php
 /**
  * NoticeManager class
+ * 
+ * @todo Maybe rename plugin and class to Notice-Collector
+ * @todo Fix regression - notice tab click not closing on first click (next time - backup first!)
+ * @todo Maybe make separate wp-admin-notice-register class (core API demo plugin)
  */
 if ( ! defined('ABSPATH') ) wp_die( 'No soup for you!' );
 
- /**
- * @todo If no notices on page - don't show Notice Manager panel
+/**
+ * NoticeManager class
  */
 class NoticeManager{
 
 	/**
 	 * Options
 	 * 
-	 * @var Array $options
+	 * @var array $options
 	 */
 	private $options;
 	
@@ -23,13 +27,12 @@ class NoticeManager{
 
 		$this->options = get_option( 'notice_manager');
 		
-
 		add_action( 'admin_enqueue_scripts' , [ $this , 'admin_enqueues' ] );
 		
-		if ( empty( $this->options['screen_panel'] ) ){
-			array_walk($this->options,function(&$item){$item=0;});
-		}else{
+		if ( ! empty( $this->options['screen_panel'] ) ){
 			add_action( 'admin_init' , [ $this , 'register_notice_manager_panel' ] );
+		}else{
+			array_walk($this->options,function(&$item){$item=0;});
 		}
 
 	}
@@ -39,7 +42,15 @@ class NoticeManager{
 		wp_localize_script( 'notice_manager_panel', 'noticeManager', camelCaseKeys($this->options) );
 		wp_enqueue_style( 'admin_notices', NOTICE_MANAGER_URL . 'css/admin_notices.css' );
 	}
-	
+
+
+	/**
+	 * Register screen-meta-links panel on all pages
+	 * 
+	 * @hook admin_init
+	 * 
+	 * @uses screen-meta-links-api library
+	 */
 	function register_notice_manager_panel(){
 		if ( ! function_exists( 'add_screen_meta_link' ) )
 			return;
@@ -52,7 +63,6 @@ class NoticeManager{
 			[ 'aria-controls' => 'meta-link-notices-wrap' ], // $attributes - Additional attributes for the link tag.
 			[ $this , 'print_notice_manager_panel' ] // $panel callback - cb echoes its output
 		);
-		
 		
 	}
 	

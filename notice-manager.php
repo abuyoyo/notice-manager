@@ -7,10 +7,13 @@
  * Author URI: https://github.com/abuyoyo/
  * Plugin URI: https://github.com/abuyoyo/notice-manager
  */
-if ( ! defined('ABSPATH') ) wp_die( 'No soup for you!' );
+defined( 'ABSPATH' ) || die( 'No soup for you!' );
 
 use WPHelper\PluginCore;
 
+/**
+ * Print setting page
+ */
 new PluginCore(
 	__FILE__,
 	[
@@ -31,7 +34,7 @@ new PluginCore(
 								'id' => 'screen_panel',
 								'title' => 'Notices Panel',
 								'type' => 'checkbox',
-								'description' => 'Enable screen-meta-links \'Notices\' panel.',
+								'description' => 'Enable\disable screen-meta-links \'Notices\' panel.',
 							],
 							[
 								'id' => 'auto_collect',
