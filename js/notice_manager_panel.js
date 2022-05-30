@@ -131,9 +131,7 @@ var NoticeManager = (function ($, document) {
 		 */
 		collectNotices: () => {
 			notices.appendTo(".notice_container").eq(0);
-			$(".notice_container").removeClass("empty");
-
-			if (dismissNoticesButton.length) dismissNoticesButton.detach();
+			$(".notice_container").removeClass("empty"); // .empty removes padding
 
 			/**
 			 * When dismissible notices are dismissed, check if any notices are left on page.

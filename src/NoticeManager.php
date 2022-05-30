@@ -69,14 +69,15 @@ class NoticeManager{
 	/* not JSON-safe - unescaped quotes */
 	function print_notice_manager_panel(){
 		
+		// if auto_collect is ON - we don't need the button.
+		// if ( empty( $this->options['auto_collect'] ) )
+		// We ALWAYS print the button!
+		echo '<button type="button" class="notice-dismiss"><span class="screen-reader-text">' . __( 'Dismiss' ) . '</span><strong> Dismiss Notices</strong></button><div></div>' ;
+
 		// NOTE:
 		// button is a copy of is-dismissible button - for styling purposes only
 		// js functionality and listener -  js/notice_manager_meta_panel.js
 		echo '<div class="notice_container empty"></div>';
-
-		// if auto_collect is ON - we don't need the button.
-		if ( empty( $this->options['auto_collect'] ) )
-			echo '<button type="button" class="notice-dismiss"><span class="screen-reader-text">' . __( 'Dismiss' ) . '</span><strong> Dismiss Notices</strong></button><div></div>' ;
 	}
 
 }

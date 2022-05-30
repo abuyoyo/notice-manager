@@ -16,6 +16,7 @@
 #meta-link-notices-wrap > button.notice-dismiss {
     position: relative;
     display: flex;
+	width: 100%;
 }
 
 .notice_container{
