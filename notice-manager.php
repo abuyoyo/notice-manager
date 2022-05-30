@@ -18,10 +18,10 @@ new PluginCore(
 	__FILE__,
 	[
 		'update_checker' => true,
-
 		'admin_page' => [
 			'parent'   => 'options',
 			'render'   => 'settings-page', // built-in settings page
+			'plugin_info' => true,
 			'settings' => [
 				'option_name' => 'notice_manager', // option_name used in wp_options table
 				'sections' => [
