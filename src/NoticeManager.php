@@ -39,7 +39,7 @@ class NoticeManager{
 	
 	function admin_enqueues(){
 		wp_enqueue_script( 'notice_manager_panel', NOTICE_MANAGER_URL . 'js/notice_manager_panel.js' , null, false , true );
-		wp_localize_script( 'notice_manager_panel', 'noticeManager', camelCaseKeys($this->options) );
+		wp_localize_script( 'notice_manager_panel', 'notice_manager_options', $this->options );
 		wp_enqueue_style( 'admin_notices', NOTICE_MANAGER_URL . 'css/admin_notices.css' );
 	}
 
