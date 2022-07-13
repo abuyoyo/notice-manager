@@ -32,5 +32,5 @@
 .notice_container > div.error,
 .notice_container > div.notice,
 .notice_container > div.update-nag{
-	margin: 5px 12px 15px 12px;
+	margin: 5px 12px 15px 12px !important; /* Override plugins custom css */
 }
