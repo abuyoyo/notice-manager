@@ -31,6 +31,12 @@ new PluginCore(
 						'description' => 'Setup How notice manager functions.',
 						'fields'      => [
 							[
+								'id' => 'above_title',
+								'title' => 'Above Title',
+								'type' => 'checkbox',
+								'description' => 'Move all notices above title. (WordPress core moves notices below title using script.)',
+							],
+							[
 								'id' => 'screen_panel',
 								'title' => 'Notices Panel',
 								'type' => 'checkbox',

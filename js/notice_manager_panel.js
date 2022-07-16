@@ -77,14 +77,9 @@ var NoticeManager = (function ($, document) {
 		if (options.screen_panel && options.auto_collect) {
 			NoticeManager.collectNotices();
 		} else {
-			/**
-			 * Move ALL notices above page title.
-			 * Default no-panel action - override WordPress moving notices BELOW title.
-			 * I HATE it when WordPress moves notices below title.
-			 *
-			 * comment this line out to completely restore WordPress functionality when auto_collect is off
-			 */
-			notices.insertBefore(".wrap:first");
+			if (options.above_title) {
+				NoticeManager.moveAboveTitle();
+			}
 		}
 
 		/**
@@ -168,6 +163,15 @@ var NoticeManager = (function ($, document) {
 				if (!$("#screen-meta-links").children().length)
 				$("#screen-meta-links").detach();
 			}
+		},
+
+		/**
+		 * Move ALL notices above page title.
+		 * Default no-panel action - override WordPress moving notices BELOW title.
+		 * I HATE it when WordPress moves notices below title.
+		 */
+		moveAboveTitle: () => {
+			notices.insertBefore(".wrap:first");
 		},
 	};
 }(jQuery,document) )

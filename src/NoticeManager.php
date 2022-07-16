@@ -32,7 +32,7 @@ class NoticeManager{
 		if ( ! empty( $this->options['screen_panel'] ) ){
 			add_action( 'admin_init' , [ $this , 'register_notice_manager_panel' ] );
 		}else{
-			array_walk($this->options,function(&$item){$item=0;});
+			// array_walk($this->options,function(&$item){$item=0;});
 		}
 
 	}
