@@ -36,6 +36,14 @@
 }
 
 /* This should only be used if auto-collect/above-title is enabled */
+.notices-auto-collect #wpbody-content > div.updated,
+.notices-auto-collect #wpbody-content > div.error,
+.notices-auto-collect #wpbody-content > div.notice,
+.notices-auto-collect #wpbody-content > div.update-nag,
+.notices-auto-collect .wrap > div.updated,
+.notices-auto-collect .wrap > div.error,
+.notices-auto-collect .wrap > div.notice,
+.notices-auto-collect .wrap > div.update-nag,
 .notices-above-title .wrap > div.updated,
 .notices-above-title .wrap > div.error,
 .notices-above-title .wrap > div.notice,

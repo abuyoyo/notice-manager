@@ -31,6 +31,10 @@ class NoticeManager{
 		
 		if ( ! empty( $this->options['screen_panel'] ) ){
 			add_action( 'admin_init' , [ $this , 'register_notice_manager_panel' ] );
+
+			if ( ! empty( $this->options['auto_collect'] ) ){
+				add_filter( 'admin_body_class', fn($classes) => $classes . ' notices-auto-collect' );
+			}
 		}else{
 			// array_walk($this->options,function(&$item){$item=0;});
 		}
