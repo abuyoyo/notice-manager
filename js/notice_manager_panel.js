@@ -123,6 +123,14 @@ var NoticeManager = (function ($, document) {
 	return {
 		getNotices: () => notices,
 
+		getNoticesTopPriority: () => {
+			if ( notices.filter('.error').length )
+				return 'error';
+			if ( notices.filter('.notice-warning, .update-nag').length )
+				return 'warning';
+			return 'notice';
+		},
+
 		/**
 		 * Collect notices into panel.
 		 * Remove dismiss-notices button.
