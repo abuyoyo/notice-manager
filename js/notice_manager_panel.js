@@ -16,7 +16,7 @@ var NoticeManager = (function ($, document) {
 
 	let button;
 	let panel;
-	let haveClosed;
+	let haveClosed; // set to true on first close/collect
 	let dismissNoticesButton;
 
 	// bootstrap

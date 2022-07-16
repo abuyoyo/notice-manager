@@ -25,7 +25,7 @@ class NoticeManager{
 		if ( !is_admin() )
 			return;
 
-		$this->options = get_option( 'notice_manager');
+		$this->options = get_option( 'notice_manager' );
 		
 		add_action( 'admin_enqueue_scripts' , [ $this , 'admin_enqueues' ] );
 		
