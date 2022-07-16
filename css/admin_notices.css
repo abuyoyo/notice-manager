@@ -34,27 +34,3 @@
 .notice_container > div.update-nag{
 	margin: 5px 12px 15px 12px;
 }
-
-
-/* ngfb update-nag override */
-div.ngfb-notice.update-nag {
-	display: none !important; /* not working - need to remove with js */
-	/* restore normal formatting */
-	/* margin-top: 25px; */
-    border: 0px;
-    /* border-left: 4px solid #ffba00; */
-    border-left: 4px solid #00a0d2;
-}
-
-.ngfb-notice.update-nag .notice-message {
-    max-width: 100%;
-    padding: 0;
-}
-
-.ngfb-notice.update-nag p, .ngfb-notice.update-nag ul, .ngfb-notice.update-nag ol {
-	text-align: left !important;
-    font-size: 13px !important;
-    line-height: 1.5;
-    margin: 1em 0 !important;
-	opacity: 0.5;
-}
