@@ -31,6 +31,7 @@ var NoticeManager = (function ($, document) {
 		if (! haveClosed){
 			NoticeManager.collectNotices();
 		}
+		NoticeManager.addCounter();
 	});
 
 	//original wp focus on click function
@@ -43,8 +44,14 @@ var NoticeManager = (function ($, document) {
 	// could use event.target instead
 	button.on("click", function () {
 		if ($(this).hasClass("screen-meta-active")) {
+			if (haveClosed) {
+				NoticeManager.addCounter();
+			}
+
 			// $(window).scrollTop(true);
 		} else {
+			NoticeManager.removeCounter();
+
 			// wait (500).then(function(){ //still jumpy sometimes - but scrolls to correct position 400 ~ 600
 			// 	$(window).scrollTop(true);
 			// });
@@ -100,6 +107,7 @@ var NoticeManager = (function ($, document) {
 			wait(4000).then(() => {
 				if (haveClosed && NoticeManager.getNoticesTopPriority() != 'error') {
 					screenMeta.close(panel, button);
+					NoticeManager.addCounter();
 				}
 			});
 		}
@@ -156,6 +164,20 @@ var NoticeManager = (function ($, document) {
 					NoticeManager.maybeRemoveNoticesPanel();
 				}
 			);
+		},
+
+		addCounter: () => {
+			if (!button.children('.plugin-count').length){
+				button.append(
+					$("<span/>").text(notices.length).attr({
+						class: "plugin-count",
+					}).addClass(NoticeManager.getNoticesTopPriority())
+				);
+			}
+		},
+
+		removeCounter: () => {
+			button.children(".plugin-count").remove();
 		},
 
 		/**
