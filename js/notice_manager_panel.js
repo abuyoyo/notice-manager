@@ -137,12 +137,16 @@ var NoticeManager = (function ($, document) {
 			 * When dismissible notices are dismissed, check if any notices are left on page.
 			 * If no notices are left - remove Notice Panel entirely
 			 */
-			$(document).on("DOMNodeRemoved", ".notice.is-dismissible", (e) => {
-				notices = panel
-					.find("div.updated, div.error, div.notice, div.update-nag")
-					.filter(":visible");
-				NoticeManager.maybeRemoveNoticesPanel();
-			});
+			$(document).on(
+				"DOMNodeRemoved",
+				"#meta-link-notices-wrap .notice.is-dismissible",
+				(e) => {
+					notices = panel
+						.find("div.updated, div.error, div.notice, div.update-nag")
+						.filter(":visible");
+					NoticeManager.maybeRemoveNoticesPanel();
+				}
+			);
 		},
 
 		/**
