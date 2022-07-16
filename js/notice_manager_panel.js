@@ -94,10 +94,11 @@ var NoticeManager = (function ($, document) {
 		/**
 		 * auto-close notices panel after short delay
 		 * only auto-close if we have collected notices previously
+		 * only auto-close if no error messages
 		 */
 		if (options.auto_collapse) {
 			wait(4000).then(() => {
-				if (haveClosed) {
+				if (haveClosed && NoticeManager.getNoticesTopPriority() != 'error') {
 					screenMeta.close(panel, button);
 				}
 			});
