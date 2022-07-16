@@ -28,7 +28,9 @@ var NoticeManager = (function ($, document) {
 
 	dismissNoticesButton.on("click", () => {
 		screenMeta.close(panel, button);
-		NoticeManager.collectNotices();
+		if (! haveClosed){
+			NoticeManager.collectNotices();
+		}
 	});
 
 	//original wp focus on click function
@@ -40,7 +42,6 @@ var NoticeManager = (function ($, document) {
 	// cannot convert to arrow function - uses this
 	// could use event.target instead
 	button.on("click", function () {
-		haveClosed = true;
 		if ($(this).hasClass("screen-meta-active")) {
 			// $(window).scrollTop(true);
 		} else {
@@ -69,9 +70,11 @@ var NoticeManager = (function ($, document) {
 		/**
 		 * Remove panel if there are no notices on this page
 		 */
-		NoticeManager.maybeRemoveNoticesPanel();
+		if (options.screen_panel) {
+			NoticeManager.maybeRemoveNoticesPanel();
+		}
 
-		if (options.auto_collect) {
+		if (options.screen_panel && options.auto_collect) {
 			NoticeManager.collectNotices();
 		} else {
 			/**
@@ -95,11 +98,11 @@ var NoticeManager = (function ($, document) {
 
 		/**
 		 * auto-close notices panel after short delay
-		 * only auto-close if we have not interacted (opened/closed) with panel previously
+		 * only auto-close if we have collected notices previously
 		 */
 		if (options.auto_collapse) {
 			wait(4000).then(() => {
-				if (!haveClosed) {
+				if (haveClosed) {
 					screenMeta.close(panel, button);
 				}
 			});
@@ -132,6 +135,8 @@ var NoticeManager = (function ($, document) {
 		collectNotices: () => {
 			notices.appendTo(".notice_container").eq(0);
 			$(".notice_container").removeClass("empty"); // .empty removes padding
+
+			haveClosed = true; // initial collection has occured.
 
 			/**
 			 * When dismissible notices are dismissed, check if any notices are left on page.
