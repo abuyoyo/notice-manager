@@ -35,6 +35,10 @@ class NoticeManager{
 			// array_walk($this->options,function(&$item){$item=0;});
 		}
 
+		if ( ! empty( $this->options['above_title'] ) ){
+			add_filter( 'admin_body_class', fn($classes) => $classes . ' notices-above-title' );
+		}
+
 	}
 	
 	function admin_enqueues(){
