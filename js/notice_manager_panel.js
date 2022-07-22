@@ -16,7 +16,7 @@ var NoticeManager = (function ($, document) {
 
 	let button;
 	let panel;
-	let haveClosed;
+	let haveClosed; // set to true on first close/collect
 	let dismissNoticesButton;
 
 	// bootstrap
@@ -28,7 +28,10 @@ var NoticeManager = (function ($, document) {
 
 	dismissNoticesButton.on("click", () => {
 		screenMeta.close(panel, button);
-		NoticeManager.collectNotices();
+		if (! haveClosed){
+			NoticeManager.collectNotices();
+		}
+		NoticeManager.addCounter();
 	});
 
 	//original wp focus on click function
@@ -40,10 +43,15 @@ var NoticeManager = (function ($, document) {
 	// cannot convert to arrow function - uses this
 	// could use event.target instead
 	button.on("click", function () {
-		haveClosed = true;
 		if ($(this).hasClass("screen-meta-active")) {
+			if (haveClosed) {
+				NoticeManager.addCounter();
+			}
+
 			// $(window).scrollTop(true);
 		} else {
+			NoticeManager.removeCounter();
+
 			// wait (500).then(function(){ //still jumpy sometimes - but scrolls to correct position 400 ~ 600
 			// 	$(window).scrollTop(true);
 			// });
@@ -69,19 +77,16 @@ var NoticeManager = (function ($, document) {
 		/**
 		 * Remove panel if there are no notices on this page
 		 */
-		NoticeManager.maybeRemoveNoticesPanel();
+		if (options.screen_panel) {
+			NoticeManager.maybeRemoveNoticesPanel();
+		}
 
-		if (options.auto_collect) {
+		if (options.screen_panel && options.auto_collect) {
 			NoticeManager.collectNotices();
 		} else {
-			/**
-			 * Move ALL notices above page title.
-			 * Default no-panel action - override WordPress moving notices BELOW title.
-			 * I HATE it when WordPress moves notices below title.
-			 *
-			 * comment this line out to completely restore WordPress functionality when auto_collect is off
-			 */
-			notices.insertBefore(".wrap:first");
+			if (options.above_title) {
+				NoticeManager.moveAboveTitle();
+			}
 		}
 
 		/**
@@ -95,12 +100,14 @@ var NoticeManager = (function ($, document) {
 
 		/**
 		 * auto-close notices panel after short delay
-		 * only auto-close if we have not interacted (opened/closed) with panel previously
+		 * only auto-close if we have collected notices previously
+		 * only auto-close if no error messages
 		 */
 		if (options.auto_collapse) {
 			wait(4000).then(() => {
-				if (!haveClosed) {
+				if (haveClosed && NoticeManager.getNoticesTopPriority() != 'error') {
 					screenMeta.close(panel, button);
+					NoticeManager.addCounter();
 				}
 			});
 		}
@@ -125,6 +132,14 @@ var NoticeManager = (function ($, document) {
 	return {
 		getNotices: () => notices,
 
+		getNoticesTopPriority: () => {
+			if ( notices.filter('.error').length )
+				return 'error';
+			if ( notices.filter('.notice-warning, .update-nag').length )
+				return 'warning';
+			return 'notice';
+		},
+
 		/**
 		 * Collect notices into panel.
 		 * Remove dismiss-notices button.
@@ -133,16 +148,36 @@ var NoticeManager = (function ($, document) {
 			notices.appendTo(".notice_container").eq(0);
 			$(".notice_container").removeClass("empty"); // .empty removes padding
 
+			haveClosed = true; // initial collection has occured.
+
 			/**
 			 * When dismissible notices are dismissed, check if any notices are left on page.
 			 * If no notices are left - remove Notice Panel entirely
 			 */
-			$(document).on("DOMNodeRemoved", ".notice.is-dismissible", (e) => {
-				notices = panel
-					.find("div.updated, div.error, div.notice, div.update-nag")
-					.filter(":visible");
-				NoticeManager.maybeRemoveNoticesPanel();
-			});
+			$(document).on(
+				"DOMNodeRemoved",
+				"#meta-link-notices-wrap .notice.is-dismissible",
+				(e) => {
+					notices = panel
+						.find("div.updated, div.error, div.notice, div.update-nag")
+						.filter(":visible");
+					NoticeManager.maybeRemoveNoticesPanel();
+				}
+			);
+		},
+
+		addCounter: () => {
+			if (!button.children('.plugin-count').length){
+				button.append(
+					$("<span/>").text(notices.length).attr({
+						class: "plugin-count",
+					}).addClass(NoticeManager.getNoticesTopPriority())
+				);
+			}
+		},
+
+		removeCounter: () => {
+			button.children(".plugin-count").remove();
 		},
 
 		/**
@@ -159,6 +194,15 @@ var NoticeManager = (function ($, document) {
 				if (!$("#screen-meta-links").children().length)
 				$("#screen-meta-links").detach();
 			}
+		},
+
+		/**
+		 * Move ALL notices above page title.
+		 * Default no-panel action - override WordPress moving notices BELOW title.
+		 * I HATE it when WordPress moves notices below title.
+		 */
+		moveAboveTitle: () => {
+			notices.insertBefore(".wrap:first");
 		},
 	};
 }(jQuery,document) )

@@ -25,14 +25,22 @@ class NoticeManager{
 		if ( !is_admin() )
 			return;
 
-		$this->options = get_option( 'notice_manager');
+		$this->options = get_option( 'notice_manager' );
 		
 		add_action( 'admin_enqueue_scripts' , [ $this , 'admin_enqueues' ] );
 		
 		if ( ! empty( $this->options['screen_panel'] ) ){
 			add_action( 'admin_init' , [ $this , 'register_notice_manager_panel' ] );
+
+			if ( ! empty( $this->options['auto_collect'] ) ){
+				add_filter( 'admin_body_class', fn($classes) => $classes . ' notices-auto-collect' );
+			}
 		}else{
-			array_walk($this->options,function(&$item){$item=0;});
+			// array_walk($this->options,function(&$item){$item=0;});
+		}
+
+		if ( ! empty( $this->options['above_title'] ) ){
+			add_filter( 'admin_body_class', fn($classes) => $classes . ' notices-above-title' );
 		}
 
 	}

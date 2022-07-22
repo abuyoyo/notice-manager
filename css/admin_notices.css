@@ -32,29 +32,46 @@
 .notice_container > div.error,
 .notice_container > div.notice,
 .notice_container > div.update-nag{
-	margin: 5px 12px 15px 12px;
+	margin: 5px 12px 15px 12px !important; /* Override plugins custom css */
 }
 
-
-/* ngfb update-nag override */
-div.ngfb-notice.update-nag {
-	display: none !important; /* not working - need to remove with js */
-	/* restore normal formatting */
-	/* margin-top: 25px; */
-    border: 0px;
-    /* border-left: 4px solid #ffba00; */
-    border-left: 4px solid #00a0d2;
+/* This should only be used if auto-collect/above-title is enabled */
+.notices-auto-collect #wpbody-content > div.updated,
+.notices-auto-collect #wpbody-content > div.error,
+.notices-auto-collect #wpbody-content > div.notice,
+.notices-auto-collect #wpbody-content > div.update-nag,
+.notices-auto-collect .wrap > div.updated,
+.notices-auto-collect .wrap > div.error,
+.notices-auto-collect .wrap > div.notice,
+.notices-auto-collect .wrap > div.update-nag,
+.notices-above-title .wrap > div.updated,
+.notices-above-title .wrap > div.error,
+.notices-above-title .wrap > div.notice,
+.notices-above-title .wrap > div.update-nag{
+	display: none;
 }
 
-.ngfb-notice.update-nag .notice-message {
-    max-width: 100%;
-    padding: 0;
+#meta-link-notices .plugin-count {
+	display: inline-block;
+	/* vertical-align: top; */
+	box-sizing: border-box;
+	margin: 1px 0 -1px 2px;
+	padding: 0 5px;
+	min-width: 18px;
+	height: 18px;
+	border-radius: 9px;
+	background-color: #72aee6;
+	color: #fff;
+	font-size: 11px;
+	line-height: 1.6;
+	text-align: center;
+	z-index: 26;
 }
 
-.ngfb-notice.update-nag p, .ngfb-notice.update-nag ul, .ngfb-notice.update-nag ol {
-	text-align: left !important;
-    font-size: 13px !important;
-    line-height: 1.5;
-    margin: 1em 0 !important;
-	opacity: 0.5;
+#meta-link-notices .plugin-count.warning {
+	background-color: #dba617;
+}
+
+#meta-link-notices .plugin-count.error {
+	background-color: #d63638;
 }
