@@ -6,6 +6,7 @@
  * Author: abuyoyo
  * Author URI: https://github.com/abuyoyo/
  * Plugin URI: https://github.com/abuyoyo/notice-manager
+ * Update URI: https://github.com/abuyoyo/notice-manager
  */
 defined( 'ABSPATH' ) || die( 'No soup for you!' );
 
