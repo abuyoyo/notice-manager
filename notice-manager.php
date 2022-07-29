@@ -29,6 +29,7 @@ new PluginCore(
 					[
 						'id'          => 'notice_manager',
 						'description' => 'Setup Notice Manager options.',
+						'description_container' => 'notice-info',
 						'fields'      => [
 							[
 								'id' => 'above_title',
