@@ -40,10 +40,11 @@ var NoticeManager = (function ($, document) {
 	});
 
 	// scroll page to top when closing notice panel
-	// cannot convert to arrow function - uses this
-	// could use event.target instead
-	button.on("click", function () {
-		if ($(this).hasClass("screen-meta-active")) {
+	// function used to work with $(this)
+	// using e.target instead
+	// not sure if this should perhaps be e.currentTarget
+	button.on("click", (e) => {
+		if ($(e.target).hasClass("screen-meta-active")) {
 			if (haveClosed) {
 				NoticeManager.addCounter();
 			}
@@ -68,7 +69,7 @@ var NoticeManager = (function ($, document) {
 		console.log(options);
 
 		// bootstrap notices
-		// get all notices that are not explicily marked as `.inline` or `.below-h2`
+		// get all notices that are not explicitly marked as `.inline` or `.below-h2`
 		// we add .update-nag.inline for WordPress Update notice
 		notices = $("div.updated, div.error, div.notice")
 			.not(".inline, .below-h2")
@@ -148,7 +149,7 @@ var NoticeManager = (function ($, document) {
 			notices.appendTo(".notice_container").eq(0);
 			$(".notice_container").removeClass("empty"); // .empty removes padding
 
-			haveClosed = true; // initial collection has occured.
+			haveClosed = true; // initial collection has occurred.
 
 			/**
 			 * When dismissible notices are dismissed, check if any notices are left on page.

@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || die( 'No soup for you!' );
 use WPHelper\PluginCore;
 
 /**
- * Print setting page
+ * Bootstrap plugin and admin page (Tools > Notice Manager)
  */
 new PluginCore(
 	__FILE__,
@@ -28,7 +28,6 @@ new PluginCore(
 				'sections' => [
 					[
 						'id'          => 'notice_manager',
-						// 'title'       => 'N',
 						'description' => 'Setup How notice manager functions.',
 						'fields'      => [
 							[
@@ -66,6 +65,4 @@ new PluginCore(
 require_once 'src/NoticeManager.php';
 
 
-add_action('plugins_loaded', function(){
-	new NoticeManager();
-});
+add_action( 'plugins_loaded', fn() => new NoticeManager() );

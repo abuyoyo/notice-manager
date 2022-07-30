@@ -22,7 +22,7 @@ class NoticeManager{
 	
 	function __construct(){
 		// exit early if not admin page
-		if ( !is_admin() )
+		if ( ! is_admin() )
 			return;
 
 		$this->options = get_option( 'notice_manager' );
@@ -35,8 +35,6 @@ class NoticeManager{
 			if ( ! empty( $this->options['auto_collect'] ) ){
 				add_filter( 'admin_body_class', fn($classes) => $classes . ' notices-auto-collect' );
 			}
-		}else{
-			// array_walk($this->options,function(&$item){$item=0;});
 		}
 
 		if ( ! empty( $this->options['above_title'] ) ){
