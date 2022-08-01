@@ -173,8 +173,8 @@ var NoticeManager = (function ($, document) {
 			 */
 			$(document).on(
 				"DOMNodeRemoved",
-				"#meta-link-notices-wrap .notice.is-dismissible",
-				(e) => {
+				"#meta-link-notices-wrap div.notice",
+				() => {
 					notices = panel
 						.find(selectors_all.join(", "))
 						.filter(":visible");
