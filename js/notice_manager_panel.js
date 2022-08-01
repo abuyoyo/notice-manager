@@ -150,9 +150,9 @@ var NoticeManager = (function ($, document) {
 		getNotices: () => notices,
 
 		getNoticesTopPriority: () => {
-			if ( notices.filter( selectors_error.join(", ") ).length )
+			if (notices.filter(":visible").filter(selectors_error.join(", ")).length)
 				return 'error';
-			if ( notices.filter( selectors_warning.join(", ") ).length )
+			if (notices.filter(":visible").filter(selectors_warning.join(", ")).length)
 				return 'warning';
 			return 'notice';
 		},
@@ -186,7 +186,7 @@ var NoticeManager = (function ($, document) {
 		addCounter: () => {
 			if (!button.children('.plugin-count').length){
 				button.append(
-					$("<span/>").text(notices.length).attr({
+					$("<span/>").text(notices.filter(":visible").length).attr({
 						class: "plugin-count",
 					}).addClass(NoticeManager.getNoticesTopPriority())
 				);
