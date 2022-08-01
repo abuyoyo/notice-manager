@@ -1,0 +1,24 @@
+{
+  "name": "notice-manager",
+  "version": "0.15.0",
+  "description": "Manage notices on WordPress admin pages. Adds 'Notices' screen-meta-link.",
+  "author": "abuyoyo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abuyoyo/notice-manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/abuyoyo/notice-manager/issues"
+  },
+  "homepage": "https://github.com/abuyoyo/notice-manager#readme",
+  "scripts": {
+    "start": "node-sass scss/ -o css/",
+    "build": "node-sass scss/ -o css/",
+    "watch": "node-sass -w scss/ -o css/",
+    "sass": "node-sass -w scss/ -o css/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.3"
+  }
+}
