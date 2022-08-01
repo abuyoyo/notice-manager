@@ -1,18 +1,22 @@
 :not(.wrap) ~ div.notice, :not(.wrap) ~ div.updated,
 :not(.wrap) ~ div.error,
+:not(.wrap) ~ div.notice-error,
 :not(.wrap) ~ div.update-nag {
   margin: 5px 20px 15px 2px; }
 
 .notices-auto-collect #wpbody-content > div.notice, .notices-auto-collect #wpbody-content > div.updated,
 .notices-auto-collect #wpbody-content > div.error,
+.notices-auto-collect #wpbody-content > div.notice-error,
 .notices-auto-collect #wpbody-content > div.update-nag,
 .notices-auto-collect .wrap > div.notice,
 .notices-auto-collect .wrap > div.updated,
 .notices-auto-collect .wrap > div.error,
+.notices-auto-collect .wrap > div.notice-error,
 .notices-auto-collect .wrap > div.update-nag,
 .notices-above-title .wrap > div.notice,
 .notices-above-title .wrap > div.updated,
 .notices-above-title .wrap > div.error,
+.notices-above-title .wrap > div.notice-error,
 .notices-above-title .wrap > div.update-nag {
   display: none; }
 
@@ -31,6 +35,7 @@
     padding: 0; }
   .notice_container > div.notice, .notice_container > div.updated,
   .notice_container > div.error,
+  .notice_container > div.notice-error,
   .notice_container > div.update-nag {
     margin: 5px 12px 15px 12px !important; }
 

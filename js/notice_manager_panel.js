@@ -17,6 +17,7 @@ var NoticeManager = (function ($, document) {
 
 	let selectors_error = [
 		"div.error",
+		"div.notice-error",
 	];
 
 	let selectors_all = selectors_notice.concat(selectors_warning, selectors_error);
