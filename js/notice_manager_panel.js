@@ -5,6 +5,22 @@
 var NoticeManager = (function ($, document) {
 	let options = window.notice_manager_options;
 
+	let selectors_notice = [
+		"div.notice",
+		"div.updated",
+	];
+
+	let selectors_warning = [
+		"div.notice-warning",
+		"div.update-nag",
+	];
+
+	let selectors_error = [
+		"div.error",
+	];
+
+	let selectors_all = selectors_notice.concat(selectors_warning, selectors_error);
+
 	// wait function used with autoCollapse
 	let wait = function (ms) {
 		var dfd = $.Deferred();
@@ -71,7 +87,7 @@ var NoticeManager = (function ($, document) {
 		// bootstrap notices
 		// get all notices that are not explicitly marked as `.inline` or `.below-h2`
 		// we add .update-nag.inline for WordPress Update notice
-		notices = $("div.updated, div.error, div.notice")
+		notices = $( selectors_all.join(', ') )
 			.not(".inline, .below-h2")
 			.add("div.update-nag");
 
@@ -134,9 +150,9 @@ var NoticeManager = (function ($, document) {
 		getNotices: () => notices,
 
 		getNoticesTopPriority: () => {
-			if ( notices.filter('.error').length )
+			if ( notices.filter( selectors_error.join(", ") ).length )
 				return 'error';
-			if ( notices.filter('.notice-warning, .update-nag').length )
+			if ( notices.filter( selectors_warning.join(", ") ).length )
 				return 'warning';
 			return 'notice';
 		},
@@ -160,7 +176,7 @@ var NoticeManager = (function ($, document) {
 				"#meta-link-notices-wrap .notice.is-dismissible",
 				(e) => {
 					notices = panel
-						.find("div.updated, div.error, div.notice, div.update-nag")
+						.find(selectors_all.join(", "))
 						.filter(":visible");
 					NoticeManager.maybeRemoveNoticesPanel();
 				}
