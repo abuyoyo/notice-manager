@@ -28,31 +28,31 @@ new PluginCore(
 				'sections' => [
 					[
 						'id'          => 'notice_manager',
-						'description' => 'Setup How notice manager functions.',
+						'description' => 'Setup Notice Manager options.',
 						'fields'      => [
 							[
 								'id' => 'above_title',
 								'title' => 'Above Title',
 								'type' => 'checkbox',
-								'description' => 'Move all notices above title. (WordPress core moves notices below title using script.)',
+								'description' => 'Simply move all notices above title. WordPress core moves notices below title using script. This script moves them back over the title. This option does not move notices into panel.',
 							],
 							[
 								'id' => 'screen_panel',
 								'title' => 'Notices Panel',
 								'type' => 'checkbox',
-								'description' => 'Enable\disable screen-meta-links \'Notices\' panel.',
+								'description' => 'Enable Screen Meta \'Notices\' panel. User can collect notices into collapsible panel.',
 							],
 							[
 								'id' => 'auto_collect',
 								'title' => 'Auto-Collect Notices',
 								'type' => 'checkbox',
-								'description' => 'Automatic collection of notices into panel.',
+								'description' => 'If Notices panel is enabled - auto-collect notices into panel on page load.',
 							],
 							[
 								'id' => 'auto_collapse',
-								'title' => 'Auto-collapse Panel',
+								'title' => 'Auto-Collapse Panel',
 								'type' => 'checkbox',
-								'description' => 'Notices panel will stay open for a few seconds on page load, and then close automatically.',
+								'description' => 'If auto-collect is enabled - Notices panel will stay open for a few seconds on page load, and then close automatically. Panel will not auto-collapse if it contains `error` level notices.',
 							],
 						]
 					]
