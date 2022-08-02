@@ -1,0 +1,71 @@
+div.updated,
+div.error,
+div.notice-error,
+div.update-nag {
+	@extend div.notice;
+}
+
+div.notice {
+	:not(.wrap) ~ & {
+		margin: 5px 20px 15px 2px;
+	}
+
+	// This should only be used if auto-collect/above-title is enabled
+	// classes .notices-auto-collect, .notices-above-title added to body tag by plugin
+	.notices-auto-collect #wpbody-content > &,
+	.notices-auto-collect .wrap > &,
+	.notices-above-title .wrap > & {
+		display: none;
+	}
+}
+
+#meta-link-notices-wrap {
+	margin: 0;
+	// padding: 8px 20px 12px;
+	position: relative;
+
+	> button.notice-dismiss {
+		position: relative;
+		display: flex;
+		width: 100%;
+	}
+}
+
+.notice_container {
+	padding: 9px 0px 1px 0px;
+	background-color: gainsboro;
+
+	&.empty {
+		padding: 0;
+	}
+
+	> div.notice {
+		margin: 5px 12px 15px 12px !important; // Override plugins custom css
+	}
+}
+
+#meta-link-notices .plugin-count {
+	display: inline-block;
+	// vertical-align: top;
+	box-sizing: border-box;
+	margin: 1px 0 -1px 2px;
+	padding: 0 5px;
+	min-width: 18px;
+	height: 18px;
+	border-radius: 9px;
+	background-color: #72aee6;
+	color: #fff;
+	font-size: 11px;
+	line-height: 1.6;
+	text-align: center;
+	z-index: 26;
+
+	&.warning {
+		background-color: #dba617;
+	}
+
+	&.error {
+		background-color: #d63638;
+	}
+}
+

@@ -1,0 +1,19 @@
+{
+	"name": "abuyoyo/adminmenupage",
+	"description": "WordPress admin menu page helper class",
+	"type": "library",
+	"version": "0.20",
+	"license": "BSD-3-Clause",
+	"suggest": {
+		"abuyoyo/plugincore": "~0.18",
+		"cmb2/cmb2": "~2.9"
+	},
+	"autoload": {
+		"psr-4": {
+			"WPHelper\\" : "src/"
+		},
+		"files": [
+			"wph_admin_page.php"
+		]
+	}
+}

@@ -1,5 +1,19 @@
 # Notice Manager Changelog
 
+## 0.15
+
+### Added
+- Add BSD 3-Clause License file.
+- Add `vendor` directory and require `vendor/autoload.php`.
+- Add `Update URI` header to plugin to avoid conflict with wp.org repo plugin of the same name.
+
+### Changed
+- Convert stylesheet to SCSS and use `node-sass` to render css file.
+- Better option descriptions on settings page.
+- Readme file - add detailed plugin description.
+- Support `.notice-error` class.
+- Do not count hidden notices in `.plugin-count` bullet.
+
 ## 0.14
 
 ### Added
