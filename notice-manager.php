@@ -12,6 +12,8 @@ defined( 'ABSPATH' ) || die( 'No soup for you!' );
 
 use WPHelper\PluginCore;
 
+require_once 'vendor/autoload.php';
+
 /**
  * Bootstrap plugin and admin page (Tools > Notice Manager)
  */
