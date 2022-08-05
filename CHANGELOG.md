@@ -1,5 +1,10 @@
 # Notice Manager Changelog
 
+## 0.16
+
+### Added
+- Add plugin action link to Notice Manager settings page.
+
 ## 0.15
 
 ### Added
