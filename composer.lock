@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4dab38fa2dcb106e4f136a0273e46552",
+    "content-hash": "9554dcf8ad998875bf543a75631cb463",
     "packages": [
         {
             "name": "abuyoyo/adminmenupage",
@@ -46,16 +46,16 @@
         },
         {
             "name": "abuyoyo/plugincore",
-            "version": "0.20",
+            "version": "0.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/abuyoyo/PluginCore.git",
-                "reference": "0f8de7be654880adc850610f045f22cd7923c3cc"
+                "reference": "9c398bdf05dc2cecf30eb0ac53558b3d37ecc4aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abuyoyo/PluginCore/zipball/0f8de7be654880adc850610f045f22cd7923c3cc",
-                "reference": "0f8de7be654880adc850610f045f22cd7923c3cc",
+                "url": "https://api.github.com/repos/abuyoyo/PluginCore/zipball/9c398bdf05dc2cecf30eb0ac53558b3d37ecc4aa",
+                "reference": "9c398bdf05dc2cecf30eb0ac53558b3d37ecc4aa",
                 "shasum": ""
             },
             "require": {
@@ -75,9 +75,9 @@
             "description": "WordPress plugin core helper class",
             "support": {
                 "issues": "https://github.com/abuyoyo/PluginCore/issues",
-                "source": "https://github.com/abuyoyo/PluginCore/tree/0.20"
+                "source": "https://github.com/abuyoyo/PluginCore/tree/0.21"
             },
-            "time": "2022-07-29T00:00:00+00:00"
+            "time": "2022-08-05T00:00:00+00:00"
         },
         {
             "name": "abuyoyo/screen-meta-links",
