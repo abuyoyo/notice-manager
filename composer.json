@@ -10,6 +10,6 @@
 	],
 	"require":{
 		"abuyoyo/screen-meta-links": "~0.11",
-		"abuyoyo/plugincore": "~0.20"
+		"abuyoyo/plugincore": "~0.21"
 	}
 }
