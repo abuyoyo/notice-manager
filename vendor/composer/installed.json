@@ -43,20 +43,24 @@
         },
         {
             "name": "abuyoyo/plugincore",
-            "version": "0.22",
-            "version_normalized": "0.22.0.0",
+            "version": "0.23",
+            "version_normalized": "0.23.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/abuyoyo/PluginCore.git",
-                "reference": "736b38d82fc41c7102ec28f386f4df807a10ab05"
+                "reference": "0a5809d6722a2abf0bdaf23f73bd3875b00fd2a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abuyoyo/PluginCore/zipball/736b38d82fc41c7102ec28f386f4df807a10ab05",
-                "reference": "736b38d82fc41c7102ec28f386f4df807a10ab05",
+                "url": "https://api.github.com/repos/abuyoyo/PluginCore/zipball/0a5809d6722a2abf0bdaf23f73bd3875b00fd2a4",
+                "reference": "0a5809d6722a2abf0bdaf23f73bd3875b00fd2a4",
                 "shasum": ""
             },
-            "time": "2022-08-05T00:00:00+00:00",
+            "suggest": {
+                "abuyoyo/adminmenupage": "~0.20",
+                "yahnis-elsts/plugin-update-checker": "~4.12"
+            },
+            "time": "2022-08-06T00:00:00+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -71,7 +75,7 @@
             "description": "WordPress plugin core helper class",
             "support": {
                 "issues": "https://github.com/abuyoyo/PluginCore/issues",
-                "source": "https://github.com/abuyoyo/PluginCore/tree/0.22"
+                "source": "https://github.com/abuyoyo/PluginCore/tree/0.23"
             },
             "install-path": "../abuyoyo/plugincore"
         },
