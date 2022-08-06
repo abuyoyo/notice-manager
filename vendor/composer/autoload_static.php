@@ -8,7 +8,6 @@ class ComposerStaticInit99e41faf4c8cd1b54927a50ca0e7ee5c
 {
     public static $files = array (
         '8653524d908cf23a56335c6d210d6627' => __DIR__ . '/..' . '/abuyoyo/adminmenupage/wph_admin_page.php',
-        '7166494aeff09009178f278afd86c83f' => __DIR__ . '/..' . '/yahnis-elsts/plugin-update-checker/load-v4p13.php',
         'd8f9115e9a479bb7bf2fea8e74fb82f0' => __DIR__ . '/..' . '/abuyoyo/screen-meta-links/screen-meta-links.php',
     );
 
