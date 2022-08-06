@@ -20,7 +20,6 @@ require_once 'vendor/autoload.php';
 new PluginCore(
 	__FILE__,
 	[
-		'update_checker' => true,
 		'action_links' => [
 			'settings' => [
 				'text' => 'Settings',
