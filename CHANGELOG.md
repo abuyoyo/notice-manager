@@ -1,5 +1,10 @@
 # Notice Manager Changelog
 
+## 0.18
+
+### Minor
+- Version bump everywhere.
+
 ## 0.17
 
 ### Removed
