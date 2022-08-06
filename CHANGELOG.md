@@ -1,5 +1,11 @@
 # Notice Manager Changelog
 
+## 0.17
+
+### Removed
+- Remove plugin update checker.
+- Remove 3rd party libraries.
+
 ## 0.16
 
 ### Added
