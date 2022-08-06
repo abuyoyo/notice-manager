@@ -2,7 +2,7 @@
 	"name": "abuyoyo/notice-manager",
 	"description": "Manage notices on WordPress admin pages. Adds 'Notices' screen-meta-link.",
 	"type": "wordpress-plugin",
-	"version": "0.17",
+	"version": "0.18",
 	"repositories": [
 		{
 			"type": "vcs",
@@ -11,7 +11,7 @@
 	],
 	"require":{
 		"abuyoyo/screen-meta-links": "~0.11",
-		"abuyoyo/plugincore": "~0.22",
+		"abuyoyo/plugincore": "~0.23",
 		"abuyoyo/adminmenupage": "~0.21"
 	}
 }

@@ -1,7 +1,7 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '0.17',
-        'version' => '0.17.0.0',
+        'pretty_version' => '0.18',
+        'version' => '0.18.0.0',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -20,8 +20,8 @@
             'dev_requirement' => false,
         ),
         'abuyoyo/notice-manager' => array(
-            'pretty_version' => '0.17',
-            'version' => '0.17.0.0',
+            'pretty_version' => '0.18',
+            'version' => '0.18.0.0',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -29,12 +29,12 @@
             'dev_requirement' => false,
         ),
         'abuyoyo/plugincore' => array(
-            'pretty_version' => '0.22',
-            'version' => '0.22.0.0',
+            'pretty_version' => '0.23',
+            'version' => '0.23.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../abuyoyo/plugincore',
             'aliases' => array(),
-            'reference' => '736b38d82fc41c7102ec28f386f4df807a10ab05',
+            'reference' => '0a5809d6722a2abf0bdaf23f73bd3875b00fd2a4',
             'dev_requirement' => false,
         ),
         'abuyoyo/screen-meta-links' => array(

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d77ff6e04d24911491a5e639a4d1dd1",
+    "content-hash": "c7eb351b97392f663e147702dbc845b9",
     "packages": [
         {
             "name": "abuyoyo/adminmenupage",
@@ -46,17 +46,21 @@
         },
         {
             "name": "abuyoyo/plugincore",
-            "version": "0.22",
+            "version": "0.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/abuyoyo/PluginCore.git",
-                "reference": "736b38d82fc41c7102ec28f386f4df807a10ab05"
+                "reference": "0a5809d6722a2abf0bdaf23f73bd3875b00fd2a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abuyoyo/PluginCore/zipball/736b38d82fc41c7102ec28f386f4df807a10ab05",
-                "reference": "736b38d82fc41c7102ec28f386f4df807a10ab05",
+                "url": "https://api.github.com/repos/abuyoyo/PluginCore/zipball/0a5809d6722a2abf0bdaf23f73bd3875b00fd2a4",
+                "reference": "0a5809d6722a2abf0bdaf23f73bd3875b00fd2a4",
                 "shasum": ""
+            },
+            "suggest": {
+                "abuyoyo/adminmenupage": "~0.20",
+                "yahnis-elsts/plugin-update-checker": "~4.12"
             },
             "type": "library",
             "autoload": {
@@ -71,9 +75,9 @@
             "description": "WordPress plugin core helper class",
             "support": {
                 "issues": "https://github.com/abuyoyo/PluginCore/issues",
-                "source": "https://github.com/abuyoyo/PluginCore/tree/0.22"
+                "source": "https://github.com/abuyoyo/PluginCore/tree/0.23"
             },
-            "time": "2022-08-05T00:00:00+00:00"
+            "time": "2022-08-06T00:00:00+00:00"
         },
         {
             "name": "abuyoyo/screen-meta-links",
