@@ -62,6 +62,12 @@ new PluginCore(
 								'type' => 'checkbox',
 								'description' => 'If auto-collect is enabled - Notices panel will stay open for a few seconds on page load, and then close automatically. Panel will not auto-collapse if it contains `error` level notices.',
 							],
+							[
+								'id' => 'distraction_free',
+								'title' => 'Distraction Free',
+								'type' => 'checkbox',
+								'description' => 'Notice Panel is closed on page load. Requires auto_collect.'
+							],
 						]
 					]
 				]

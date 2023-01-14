@@ -110,7 +110,7 @@ var NoticeManager = (function ($, document) {
 		/**
 		 * auto-open notices panel
 		 */
-		if (button.length) {
+		if (button.length && ! options.distraction_free) {
 			panel.toggle()
 			button.addClass("screen-meta-active")
 			screenMeta.open(panel, button)
@@ -121,7 +121,7 @@ var NoticeManager = (function ($, document) {
 		 * only auto-close if we have collected notices previously
 		 * only auto-close if no error messages
 		 */
-		if (options.auto_collapse) {
+		if (options.auto_collapse && ! options.distraction_free) {
 			wait(4000).then(() => {
 				if (haveClosed && NoticeManager.getNoticesTopPriority() != 'error') {
 					screenMeta.close(panel, button)
@@ -129,6 +129,11 @@ var NoticeManager = (function ($, document) {
 				}
 			})
 		}
+
+		if (options.distraction_free) {
+			NoticeManager.addCounterWhenClosed()
+		}
+
 	}) // end document.on.ready
 
 	// prevent jumpy scrollRestoration on reload page
@@ -154,6 +159,19 @@ var NoticeManager = (function ($, document) {
 			if (notices.filter(":visible").filter(selectors_error.join(", ")).length)
 				return 'error'
 			if (notices.filter(":visible").filter(selectors_warning.join(", ")).length)
+				return 'warning'
+			return 'notice'
+		},
+
+		/**
+		 * .filter(":visible") unreliable when closed
+		 * 
+		 * @returns {string} top priority
+		 */
+		getNoticesTopPriorityWhenClosed: () => {
+			if (notices.filter(selectors_error.join(", ")).length)
+				return 'error'
+			if (notices.filter(selectors_warning.join(", ")).length)
 				return 'warning'
 			return 'notice'
 		},
@@ -190,6 +208,19 @@ var NoticeManager = (function ($, document) {
 					$("<span/>").text(notices.filter(":visible").length).attr({
 						class: "plugin-count",
 					}).addClass(NoticeManager.getNoticesTopPriority())
+				)
+			}
+		},
+
+		/**
+		 * cannot rely on filter(:visible)
+		 */
+		addCounterWhenClosed: () => {
+			if (!button.children('.plugin-count').length){
+				button.append(
+					$("<span/>").text(notices.length).attr({
+						class: "plugin-count",
+					}).addClass(NoticeManager.getNoticesTopPriorityWhenClosed())
 				)
 			}
 		},
