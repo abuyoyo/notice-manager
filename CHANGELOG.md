@@ -1,5 +1,10 @@
 # Notice Manager Changelog
 
+## 0.19
+
+### Added
+- Add 'Distraction Free' option.
+
 ## 0.18
 
 ### Minor
