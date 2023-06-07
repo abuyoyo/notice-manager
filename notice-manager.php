@@ -12,7 +12,8 @@ defined( 'ABSPATH' ) || die( 'No soup for you!' );
 
 use WPHelper\PluginCore;
 
-require_once 'vendor/autoload.php';
+if ( file_exists( 'vendor/autoload.php' ) )
+	require_once 'vendor/autoload.php';
 
 /**
  * Bootstrap plugin and admin page (Tools > Notice Manager)
