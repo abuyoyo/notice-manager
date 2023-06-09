@@ -1,5 +1,10 @@
 # Notice Manager Changelog
 
+## 0.20
+
+### Minor
+- Just another version bump (composer.json as well).
+
 ## 0.19
 
 ### Added
