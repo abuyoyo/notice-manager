@@ -1,5 +1,23 @@
 # WPHelper\PluginCore Changelog
 
+## 0.26
+Release Date: Jun 9, 2023
+
+### Fixed
+- Fix passing PluginCore instance to AdminPage constructor in `admin_page()` method.
+
+## 0.25
+Release Date: Feb 3, 2023
+
+### Added
+- Property `token` and method `token`. Lowercase underscore token to be used as variable name.
+
+## 0.24
+Release Date: Jan 13, 2023
+
+### Added
+- Static `get_by_file` method. Get PluginCore instance by plugin filename.
+
 ## 0.23
 Release Date: Aug 8, 2022
 

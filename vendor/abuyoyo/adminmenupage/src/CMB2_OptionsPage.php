@@ -4,9 +4,9 @@ namespace WPHelper;
 defined( 'ABSPATH' ) || die( 'No soup for you!' );
 
 use CMB2;
-use CMB2_Options_Hook;
+use CMB2_Options_Hookup;
 
-if ( ! class_exists( 'WPHelper\CMB2_OptionsPage' ) ):
+if ( ! class_exists( CMB2_OptionsPage::class ) ):
 /**
  * CMB2_OptionsPage
  * 
@@ -27,9 +27,19 @@ class CMB2_OptionsPage{
 	public $admin_page;
 
 	/**
+	 * @var array $fields
+	 */
+	protected $fields;
+
+	/**
 	 * @var CMB2 $cmb
 	 */
 	private $cmb;
+
+	/**
+	 * @var array $cmb2_options
+	 */
+	protected $cmb2_options;
 
 	/**
 	 * @param AdminPage $admin_page
@@ -48,6 +58,8 @@ class CMB2_OptionsPage{
 		$settings['option_key']  ??= ( $settings['option_name'] ?? ( $settings['id'] ?? $admin_options['slug'] ) );
 		$settings['title']       ??= $admin_options['title'];
 		$settings['menu_title']  ??= $admin_options['menu_title'];
+		// @todo Only if cmb2-tabs
+		$settings['tab_title']  ??= $admin_options['tab_title'] ?? $settings['submenu_title'] ?? $settings['menu_title'];
 		$settings['parent_slug'] ??= $admin_options['parent'];
 		$settings['position']    ??= $admin_options['position'];
 		$settings['icon_url']    ??= $admin_options['icon_url'];
@@ -63,7 +75,8 @@ class CMB2_OptionsPage{
 		/**
 		 * CMB2 only accepts url slug
 		 * 
-		 * @todo export parent_slug convertion to dedicated method
+		 * @todo export parent_slug conversion to dedicated method
+		 * @todo perhaps move this to AdminPage::parent() method
 		 */
 		switch ( $settings['parent_slug'] ) {
 			case 'dashboard':
@@ -116,11 +129,11 @@ class CMB2_OptionsPage{
 			$settings['tab_title'] ??= $settings['menu_title'];
 		}
 
+		$this->fields = $settings['fields'] ?? [];
+		/**
+		 * @todo revisit this - might not need to unset fields
+		 */
 		if ( isset( $settings['fields'] ) ){
-			$this->fields = $settings['fields'];
-			/**
-			 * @todo revisit this - might not need to unset fields
-			 */
 			unset( $settings['fields'] );
 		}
 
@@ -198,12 +211,20 @@ class CMB2_OptionsPage{
 	/**
 	 * Display options-page output. To override, set 'display_cb' box property.
 	 * 
-	 * @param CMB2_Options_Hook $hookup - instance of Options Page Hookup class (caller of this function)
+	 * @param CMB2_Options_Hookup $hookup - instance of Options Page Hookup class (caller of this function)
 	 * 
-	 * @see CMB2_Options_Hook
+	 * @see CMB2_Options_Hookup
 	 */
 	public function options_page_output( $hookup ) {
-		include $this->admin_page->get_render_tpl();
+		
+		$options = $this->admin_page->options();
+
+		if ( ! empty( $options['plugin_core'] ) || ! empty( $options['plugin_info'] ) ){
+			include  __DIR__ . '/tpl/wrap-cmb2-sidebar.php';
+		} else {
+			include __DIR__ . '/tpl/wrap-cmb2-simple.php';
+		}
+
 	}
 
 

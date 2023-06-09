@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Notice Manager
  * Description: Manage notices on WordPress admin pages. Adds 'Notices' screen-meta-link.
- * Version: 0.18
+ * Version: 0.19
  * Author: abuyoyo
  * Author URI: https://github.com/abuyoyo/
  * Plugin URI: https://github.com/abuyoyo/notice-manager
@@ -12,7 +12,8 @@ defined( 'ABSPATH' ) || die( 'No soup for you!' );
 
 use WPHelper\PluginCore;
 
-require_once 'vendor/autoload.php';
+if ( file_exists( 'vendor/autoload.php' ) )
+	require_once 'vendor/autoload.php';
 
 /**
  * Bootstrap plugin and admin page (Tools > Notice Manager)
@@ -29,7 +30,7 @@ new PluginCore(
 		'admin_page' => [
 			'parent'   => 'options',
 			'render'   => 'settings-page', // built-in settings page
-			'plugin_info' => true,
+			// 'plugin_info' => true, // disable on public repo
 			'settings' => [
 				'option_name' => 'notice_manager', // option_name used in wp_options table
 				'sections' => [
@@ -61,6 +62,12 @@ new PluginCore(
 								'title' => 'Auto-Collapse Panel',
 								'type' => 'checkbox',
 								'description' => 'If auto-collect is enabled - Notices panel will stay open for a few seconds on page load, and then close automatically. Panel will not auto-collapse if it contains `error` level notices.',
+							],
+							[
+								'id' => 'distraction_free',
+								'title' => 'Distraction Free',
+								'type' => 'checkbox',
+								'description' => 'Notice Panel is closed on page load. Requires auto_collect.'
 							],
 						]
 					]

@@ -11,12 +11,12 @@
     ),
     'versions' => array(
         'abuyoyo/adminmenupage' => array(
-            'pretty_version' => '0.21',
-            'version' => '0.21.0.0',
+            'pretty_version' => '0.25',
+            'version' => '0.25.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../abuyoyo/adminmenupage',
             'aliases' => array(),
-            'reference' => 'd05a9e9977d7e7c4ba3c913993493fefba4359d6',
+            'reference' => '487d262aec77a9a3ce04fa762e9048f30d22f123',
             'dev_requirement' => false,
         ),
         'abuyoyo/notice-manager' => array(
@@ -29,12 +29,12 @@
             'dev_requirement' => false,
         ),
         'abuyoyo/plugincore' => array(
-            'pretty_version' => '0.23',
-            'version' => '0.23.0.0',
+            'pretty_version' => '0.26',
+            'version' => '0.26.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../abuyoyo/plugincore',
             'aliases' => array(),
-            'reference' => '0a5809d6722a2abf0bdaf23f73bd3875b00fd2a4',
+            'reference' => '77f7d5451bdff4bda6c9766847b215bdeaca96d6',
             'dev_requirement' => false,
         ),
         'abuyoyo/screen-meta-links' => array(
