@@ -29,7 +29,7 @@ new PluginCore(
 		'admin_page' => [
 			'parent'   => 'options',
 			'render'   => 'settings-page', // built-in settings page
-			'plugin_info' => true,
+			// 'plugin_info' => true, // disable on public repo
 			'settings' => [
 				'option_name' => 'notice_manager', // option_name used in wp_options table
 				'sections' => [
