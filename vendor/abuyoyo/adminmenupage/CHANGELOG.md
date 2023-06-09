@@ -1,6 +1,54 @@
 # Changelog
 WPHelper\AdminMenuPage
 
+## 0.25
+Release date: Jun 9 2023
+
+### Added
+- Non-CMB2 pages can be added to CMB2 tab groups. New options `tab_group` and `tab_title`
+
+### Changed
+- New method `render_plugin_info_meta_box`. Deprecate `render_plugin_info_box`.
+- Plugin info meta box rendered using `WPHelper\MetaBox`.
+
+### Fixed
+- Fix several PHP undefined variable warnings.
+
+### Internal
+- Setting pages/wrap temlate uses WordPress Core `do_meta_boxes` to render `side` meta boxes div.
+- Add variables to `AdminPage::options()` array.
+- Multiple code refactoring and template restructuring.
+
+## 0.24
+Release date: Jan 28 2023
+
+### Fixed
+- Fix plugin info meta box when no PluginCore is available.
+- Fix PHP deprecated notice.
+
+## 0.23
+Release date: Jan 15 2023
+
+### Added
+- Add action hook `wphelper/plugin_info_meta_box/{$slug}` to modify and render plugin info meta box.
+- Add support for `textarea` input field in SettingsPage.
+- Add `sanitize_callback` option - allow plugins to supply their own sanitize function.
+- Add `render` to fields - allow plugins to supply their own render callback for fields.
+- Add `placeholder` to fields - allow plugins to supply placeholder values for fields.
+
+### Fixed
+- Fix default value handling for fields.
+
+### Internal
+- Rename `tpl/` template parts.
+- Minor changes and fixes.
+
+## 0.22
+Release date: Jan 1 2023
+
+### Fixed
+- Fix error when `plugin_info = true` but `plugin_core` is not set.
+
 ## 0.21
 
 ### Fixed
@@ -9,7 +57,7 @@ WPHelper\AdminMenuPage
 ## 0.20
 
 ### Added
-- Add SettingsPage section option `desciption-container`. Accepts `card` div, `notice`, `notice-info` and `none`.
+- Add SettingsPage section option `description-container`. Accepts `card` div, `notice`, `notice-info` and `none`.
 - Sanitize SettingsPage text, url and email fields.
 
 ## 0.19
@@ -19,7 +67,7 @@ WPHelper\AdminMenuPage
 - CMB2_OptionsPage supports all admin menu top-level slugs.
 
 ### Fixed
-- Fixed PHP fatal error: cannot redeclare function `wph_extra_plugin_headers()`.
+- Fix PHP fatal error: cannot redeclare function `wph_extra_plugin_headers()`.
 
 ### Changed
 - If CMB2 plugin is not activated - show missing plugin card on `cmb2` and `cmb2-tabs` pages.
