@@ -1,7 +1,7 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '0.18',
-        'version' => '0.18.0.0',
+        'pretty_version' => '0.20',
+        'version' => '0.20.0.0',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -20,8 +20,8 @@
             'dev_requirement' => false,
         ),
         'abuyoyo/notice-manager' => array(
-            'pretty_version' => '0.18',
-            'version' => '0.18.0.0',
+            'pretty_version' => '0.20',
+            'version' => '0.20.0.0',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
