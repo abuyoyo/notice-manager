@@ -2,24 +2,24 @@
     "packages": [
         {
             "name": "abuyoyo/adminmenupage",
-            "version": "0.25",
-            "version_normalized": "0.25.0.0",
+            "version": "0.26",
+            "version_normalized": "0.26.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/abuyoyo/AdminMenuPage.git",
-                "reference": "487d262aec77a9a3ce04fa762e9048f30d22f123"
+                "reference": "f2fcb6d4c8b232ca03cef1908253aed4e5962be8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abuyoyo/AdminMenuPage/zipball/487d262aec77a9a3ce04fa762e9048f30d22f123",
-                "reference": "487d262aec77a9a3ce04fa762e9048f30d22f123",
+                "url": "https://api.github.com/repos/abuyoyo/AdminMenuPage/zipball/f2fcb6d4c8b232ca03cef1908253aed4e5962be8",
+                "reference": "f2fcb6d4c8b232ca03cef1908253aed4e5962be8",
                 "shasum": ""
             },
             "suggest": {
                 "abuyoyo/plugincore": "~0.26",
                 "cmb2/cmb2": "~2.9"
             },
-            "time": "2023-06-09T00:00:00+00:00",
+            "time": "2023-06-20T00:00:00+00:00",
             "type": "library",
             "installation-source": "source",
             "autoload": {
@@ -37,7 +37,7 @@
             "description": "WordPress admin menu page helper class",
             "support": {
                 "issues": "https://github.com/abuyoyo/AdminMenuPage/issues",
-                "source": "https://github.com/abuyoyo/AdminMenuPage/tree/0.25"
+                "source": "https://github.com/abuyoyo/AdminMenuPage/tree/0.26"
             },
             "install-path": "../abuyoyo/adminmenupage"
         },
@@ -81,20 +81,20 @@
         },
         {
             "name": "abuyoyo/screen-meta-links",
-            "version": "0.11",
-            "version_normalized": "0.11.0.0",
+            "version": "0.13",
+            "version_normalized": "0.13.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/abuyoyo/screen-meta-links.git",
-                "reference": "04e3c892f0c6095b4c31a489e06336f0917128d3"
+                "reference": "b324cef9eb5825d04ffa17f771237b7deca5cd01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abuyoyo/screen-meta-links/zipball/04e3c892f0c6095b4c31a489e06336f0917128d3",
-                "reference": "04e3c892f0c6095b4c31a489e06336f0917128d3",
+                "url": "https://api.github.com/repos/abuyoyo/screen-meta-links/zipball/b324cef9eb5825d04ffa17f771237b7deca5cd01",
+                "reference": "b324cef9eb5825d04ffa17f771237b7deca5cd01",
                 "shasum": ""
             },
-            "time": "2022-05-18T01:18:24+00:00",
+            "time": "2023-08-08T22:37:03+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -104,7 +104,7 @@
             },
             "description": "API for adding custom screen-meta-links alongside the 'Screen Options' and 'Help' links.",
             "support": {
-                "source": "https://github.com/abuyoyo/screen-meta-links/tree/0.11",
+                "source": "https://github.com/abuyoyo/screen-meta-links/tree/0.13",
                 "issues": "https://github.com/abuyoyo/screen-meta-links/issues"
             },
             "install-path": "../abuyoyo/screen-meta-links"
