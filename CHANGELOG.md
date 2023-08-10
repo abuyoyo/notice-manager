@@ -1,5 +1,13 @@
 # Notice Manager Changelog
 
+## 0.21
+
+### Fixed
+- Fix PHP 8.2 deprecated optional parameter before required parameter. Fixed upstream in `abuyoyo/screen-meta-links ~0.13`.
+
+### Dependencies
+- Update library `abuyoyo/screen-meta-links` to version 0.13.
+
 ## 0.20
 
 ### Minor
