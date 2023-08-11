@@ -1,5 +1,11 @@
 # Notice Manager Changelog
 
+## 0.22
+
+### Fixed
+- Do not collect `.theme-info` notices.
+- Fix `vendor/autoload` include path.
+
 ## 0.21
 
 ### Fixed
