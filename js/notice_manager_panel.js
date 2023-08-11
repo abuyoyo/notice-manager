@@ -22,6 +22,12 @@ var NoticeManager = (function ($, document) {
 
 	let selectors_all = selectors_notice.concat(selectors_warning, selectors_error)
 
+	let selectors_skip = [
+		".inline",
+		".below-h2",
+		".theme-info .notice",
+	]
+
 	// wait function used with autoCollapse
 	let wait = function (ms) {
 		var dfd = $.Deferred()
@@ -89,7 +95,7 @@ var NoticeManager = (function ($, document) {
 		// get all notices that are not explicitly marked as `.inline` or `.below-h2`
 		// we add .update-nag.inline for WordPress Update notice
 		notices = $( selectors_all.join(', ') )
-			.not(".inline, .below-h2")
+			.not(selectors_skip.join(', '))
 			.add("div.update-nag")
 
 		/**
