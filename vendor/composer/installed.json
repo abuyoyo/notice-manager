@@ -2,17 +2,17 @@
     "packages": [
         {
             "name": "abuyoyo/adminmenupage",
-            "version": "0.26",
-            "version_normalized": "0.26.0.0",
+            "version": "0.27",
+            "version_normalized": "0.27.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/abuyoyo/AdminMenuPage.git",
-                "reference": "f2fcb6d4c8b232ca03cef1908253aed4e5962be8"
+                "reference": "5ab293cbac3613a680bf2bd741214b1ca782f33b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abuyoyo/AdminMenuPage/zipball/f2fcb6d4c8b232ca03cef1908253aed4e5962be8",
-                "reference": "f2fcb6d4c8b232ca03cef1908253aed4e5962be8",
+                "url": "https://api.github.com/repos/abuyoyo/AdminMenuPage/zipball/5ab293cbac3613a680bf2bd741214b1ca782f33b",
+                "reference": "5ab293cbac3613a680bf2bd741214b1ca782f33b",
                 "shasum": ""
             },
             "suggest": {
@@ -37,7 +37,7 @@
             "description": "WordPress admin menu page helper class",
             "support": {
                 "issues": "https://github.com/abuyoyo/AdminMenuPage/issues",
-                "source": "https://github.com/abuyoyo/AdminMenuPage/tree/0.26"
+                "source": "https://github.com/abuyoyo/AdminMenuPage/tree/0.27"
             },
             "install-path": "../abuyoyo/adminmenupage"
         },

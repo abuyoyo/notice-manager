@@ -26,6 +26,7 @@ var NoticeManager = (function ($, document) {
 		".inline",
 		".below-h2",
 		".theme-info .notice",
+		".hidden",
 	]
 
 	// wait function used with autoCollapse
@@ -166,7 +167,7 @@ var NoticeManager = (function ($, document) {
 				return 'error'
 			if (notices.filter(":visible").filter(selectors_warning.join(", ")).length)
 				return 'warning'
-			return 'notice'
+			return 'info'
 		},
 
 		/**
@@ -179,7 +180,7 @@ var NoticeManager = (function ($, document) {
 				return 'error'
 			if (notices.filter(selectors_warning.join(", ")).length)
 				return 'warning'
-			return 'notice'
+			return 'info'
 		},
 
 		/**
@@ -246,8 +247,9 @@ var NoticeManager = (function ($, document) {
 				$("#meta-link-notices-link-wrap").detach()
 				$("#meta-link-notices-wrap").detach()
 
-				if (!$("#screen-meta-links").children().length)
-				$("#screen-meta-links").detach()
+				if ($("#screen-meta-links").children().length == 0){
+					$("#screen-meta-links").detach()
+				}
 			}
 		},
 
