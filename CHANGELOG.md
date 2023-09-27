@@ -1,5 +1,13 @@
 # Notice Manager Changelog
 
+## 0.23
+
+### Fixed
+- Fix `.plugin-count` bullet styling issue.
+- Fix 0-count panel caused by collecting `.hidden` notices.
+- Fix wrong priority color `.plugin-count` bullet caused by collecting `.hidden` notices.
+- Fix empty notices-panel removing all screen-meta-link panels.
+
 ## 0.22
 
 ### Fixed
