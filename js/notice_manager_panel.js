@@ -166,7 +166,7 @@ var NoticeManager = (function ($, document) {
 				return 'error'
 			if (notices.filter(":visible").filter(selectors_warning.join(", ")).length)
 				return 'warning'
-			return 'notice'
+			return 'info'
 		},
 
 		/**
@@ -179,7 +179,7 @@ var NoticeManager = (function ($, document) {
 				return 'error'
 			if (notices.filter(selectors_warning.join(", ")).length)
 				return 'warning'
-			return 'notice'
+			return 'info'
 		},
 
 		/**
