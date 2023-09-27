@@ -26,6 +26,7 @@ var NoticeManager = (function ($, document) {
 		".inline",
 		".below-h2",
 		".theme-info .notice",
+		".hidden",
 	]
 
 	// wait function used with autoCollapse
