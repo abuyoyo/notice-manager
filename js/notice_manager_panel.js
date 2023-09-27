@@ -247,8 +247,9 @@ var NoticeManager = (function ($, document) {
 				$("#meta-link-notices-link-wrap").detach()
 				$("#meta-link-notices-wrap").detach()
 
-				if (!$("#screen-meta-links").children().length)
-				$("#screen-meta-links").detach()
+				if ($("#screen-meta-links").children().length == 0){
+					$("#screen-meta-links").detach()
+				}
 			}
 		},
 
