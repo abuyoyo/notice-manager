@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a4fa2edfc5b4021a3dc78312c01fbfd0",
+    "content-hash": "4ad7c014df793fb15d9b01b71d7a7acf",
     "packages": [
         {
             "name": "abuyoyo/adminmenupage",
-            "version": "0.27",
+            "version": "0.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/abuyoyo/AdminMenuPage.git",
-                "reference": "5ab293cbac3613a680bf2bd741214b1ca782f33b"
+                "reference": "c16d80ebbe1cc112acd3e5eca2f97e7abd017d29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abuyoyo/AdminMenuPage/zipball/5ab293cbac3613a680bf2bd741214b1ca782f33b",
-                "reference": "5ab293cbac3613a680bf2bd741214b1ca782f33b",
+                "url": "https://api.github.com/repos/abuyoyo/AdminMenuPage/zipball/c16d80ebbe1cc112acd3e5eca2f97e7abd017d29",
+                "reference": "c16d80ebbe1cc112acd3e5eca2f97e7abd017d29",
                 "shasum": ""
             },
             "suggest": {
@@ -40,27 +40,27 @@
             "description": "WordPress admin menu page helper class",
             "support": {
                 "issues": "https://github.com/abuyoyo/AdminMenuPage/issues",
-                "source": "https://github.com/abuyoyo/AdminMenuPage/tree/0.27"
+                "source": "https://github.com/abuyoyo/AdminMenuPage/tree/0.28"
             },
-            "time": "2023-06-20T00:00:00+00:00"
+            "time": "2023-10-04T00:00:00+00:00"
         },
         {
             "name": "abuyoyo/plugincore",
-            "version": "0.26",
+            "version": "0.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/abuyoyo/PluginCore.git",
-                "reference": "77f7d5451bdff4bda6c9766847b215bdeaca96d6"
+                "reference": "d730a674cbe2dc92e60ace8e25a2e0e3fdeee3e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abuyoyo/PluginCore/zipball/77f7d5451bdff4bda6c9766847b215bdeaca96d6",
-                "reference": "77f7d5451bdff4bda6c9766847b215bdeaca96d6",
+                "url": "https://api.github.com/repos/abuyoyo/PluginCore/zipball/d730a674cbe2dc92e60ace8e25a2e0e3fdeee3e6",
+                "reference": "d730a674cbe2dc92e60ace8e25a2e0e3fdeee3e6",
                 "shasum": ""
             },
             "suggest": {
-                "abuyoyo/adminmenupage": "~0.25",
-                "yahnis-elsts/plugin-update-checker": "~4.12"
+                "abuyoyo/adminmenupage": "~0.27",
+                "yahnis-elsts/plugin-update-checker": "~5.2"
             },
             "type": "library",
             "autoload": {
@@ -75,9 +75,9 @@
             "description": "WordPress plugin core helper class",
             "support": {
                 "issues": "https://github.com/abuyoyo/PluginCore/issues",
-                "source": "https://github.com/abuyoyo/PluginCore/tree/0.26"
+                "source": "https://github.com/abuyoyo/PluginCore/tree/0.27"
             },
-            "time": "2022-06-09T00:00:00+00:00"
+            "time": "2022-10-03T00:00:00+00:00"
         },
         {
             "name": "abuyoyo/screen-meta-links",
