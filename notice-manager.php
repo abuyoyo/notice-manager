@@ -10,10 +10,24 @@
  */
 defined( 'ABSPATH' ) || die( 'No soup for you!' );
 
-use WPHelper\PluginCore;
+/**
+ * Dependencies
+ * Allow all other auto-loaders to fail before including our own.
+ */
+if (
+	! class_exists( 'WPHelper\PluginCore' )
+	||
+	! class_exists( 'WPHelper\AdminPage' )
+	||
+	! function_exists( 'wph_add_screen_meta_panel' )
+)
+{
+	if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ){
+		require_once __DIR__ . '/vendor/autoload.php';
+	}
+}
 
-if ( file_exists( __DIR__ . '/vendor/autoload.php' ) )
-	require_once __DIR__ . '/vendor/autoload.php';
+use WPHelper\PluginCore;
 
 /**
  * Bootstrap plugin and admin page (Tools > Notice Manager)
