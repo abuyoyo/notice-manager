@@ -69,12 +69,13 @@ new PluginCore(
 								'type' => 'checkbox',
 								'description' => 'Notice Panel is closed on page load. Requires auto_collect.'
 							],
-						]
-					]
-				]
-			]
-		]
-	]
+						],
+					],
+				],
+			],
+		],
+		'update_checker' => true, // If Plugin Update Checker library is available - allow updates/auto-updates.
+	],
 );
 
 require_once 'src/NoticeManager.php';
