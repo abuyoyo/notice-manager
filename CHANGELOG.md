@@ -1,5 +1,15 @@
 # Notice Manager Changelog
 
+## 0.24
+
+Release date: Oct 4 2023
+
+### Fixed
+- Set `WPHelper\PluginCore` option `update_checker` to true. If library Plugin-Update-Checker is installed, allows updates from repo.
+
+### Dependencies
+- Library WPHelper\PluginCore (`abuyoyo/plugincore`) updated to 0.27. Supports both Plugin-Update-Checker v5 and v4. 
+
 ## 0.23
 
 ### Fixed
