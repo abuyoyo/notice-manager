@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Notice Manager
  * Description: Manage notices on WordPress admin pages. Adds 'Notices' screen-meta-link panel to collect notices from page.
- * Version: 0.23
+ * Version: 0.24
  * Author: abuyoyo
  * Author URI: https://github.com/abuyoyo/
  * Plugin URI: https://github.com/abuyoyo/notice-manager
@@ -10,10 +10,24 @@
  */
 defined( 'ABSPATH' ) || die( 'No soup for you!' );
 
-use WPHelper\PluginCore;
+/**
+ * Dependencies
+ * Allow all other auto-loaders to fail before including our own.
+ */
+if (
+	! class_exists( 'WPHelper\PluginCore' )
+	||
+	! class_exists( 'WPHelper\AdminPage' )
+	||
+	! function_exists( 'wph_add_screen_meta_panel' )
+)
+{
+	if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ){
+		require_once __DIR__ . '/vendor/autoload.php';
+	}
+}
 
-if ( file_exists( __DIR__ . '/vendor/autoload.php' ) )
-	require_once __DIR__ . '/vendor/autoload.php';
+use WPHelper\PluginCore;
 
 /**
  * Bootstrap plugin and admin page (Tools > Notice Manager)
@@ -69,12 +83,13 @@ new PluginCore(
 								'type' => 'checkbox',
 								'description' => 'Notice Panel is closed on page load. Requires auto_collect.'
 							],
-						]
-					]
-				]
-			]
-		]
-	]
+						],
+					],
+				],
+			],
+		],
+		'update_checker' => true, // If Plugin Update Checker library is available - allow updates/auto-updates.
+	],
 );
 
 require_once 'src/NoticeManager.php';

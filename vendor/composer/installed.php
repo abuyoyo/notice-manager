@@ -1,8 +1,8 @@
 <?php return array(
     'root' => array(
         'name' => 'abuyoyo/notice-manager',
-        'pretty_version' => '0.23',
-        'version' => '0.23.0.0',
+        'pretty_version' => '0.24',
+        'version' => '0.24.0.0',
         'reference' => NULL,
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
@@ -11,17 +11,17 @@
     ),
     'versions' => array(
         'abuyoyo/adminmenupage' => array(
-            'pretty_version' => '0.27',
-            'version' => '0.27.0.0',
-            'reference' => '5ab293cbac3613a680bf2bd741214b1ca782f33b',
+            'pretty_version' => '0.28',
+            'version' => '0.28.0.0',
+            'reference' => 'c16d80ebbe1cc112acd3e5eca2f97e7abd017d29',
             'type' => 'library',
             'install_path' => __DIR__ . '/../abuyoyo/adminmenupage',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
         'abuyoyo/notice-manager' => array(
-            'pretty_version' => '0.23',
-            'version' => '0.23.0.0',
+            'pretty_version' => '0.24',
+            'version' => '0.24.0.0',
             'reference' => NULL,
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
@@ -29,9 +29,9 @@
             'dev_requirement' => false,
         ),
         'abuyoyo/plugincore' => array(
-            'pretty_version' => '0.26',
-            'version' => '0.26.0.0',
-            'reference' => '77f7d5451bdff4bda6c9766847b215bdeaca96d6',
+            'pretty_version' => '0.27',
+            'version' => '0.27.0.0',
+            'reference' => 'd730a674cbe2dc92e60ace8e25a2e0e3fdeee3e6',
             'type' => 'library',
             'install_path' => __DIR__ . '/../abuyoyo/plugincore',
             'aliases' => array(),
