@@ -1,5 +1,15 @@
 # Notice Manager Changelog
 
+## 0.25
+
+Release date: Feb 18 2024
+
+### Fixed
+- Fix fatal error `Class "WPHelper\MetaBox" not found` due to dependency `abuyoyo/adminmenupage` < 0.29 not requiring dependency `abuyoyo/metabox`.
+
+### Dependencies
+- Library WPHelper\AdminPage (`abuyoyo/adminmenupage`) updated to 0.29. Requires `abuyoyo/metabox`. 
+
 ## 0.24
 
 Release date: Oct 4 2023

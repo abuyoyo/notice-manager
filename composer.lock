@@ -4,21 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ad7c014df793fb15d9b01b71d7a7acf",
+    "content-hash": "b1a74cf1316f5dd317f70efeb60d9f4d",
     "packages": [
         {
             "name": "abuyoyo/adminmenupage",
-            "version": "0.28",
+            "version": "0.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/abuyoyo/AdminMenuPage.git",
-                "reference": "c16d80ebbe1cc112acd3e5eca2f97e7abd017d29"
+                "reference": "4cd47d5217ca25ed17af76f5fdbab3cab3b37ef8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abuyoyo/AdminMenuPage/zipball/c16d80ebbe1cc112acd3e5eca2f97e7abd017d29",
-                "reference": "c16d80ebbe1cc112acd3e5eca2f97e7abd017d29",
+                "url": "https://api.github.com/repos/abuyoyo/AdminMenuPage/zipball/4cd47d5217ca25ed17af76f5fdbab3cab3b37ef8",
+                "reference": "4cd47d5217ca25ed17af76f5fdbab3cab3b37ef8",
                 "shasum": ""
+            },
+            "require": {
+                "abuyoyo/metabox": "~0.8"
             },
             "suggest": {
                 "abuyoyo/plugincore": "~0.26",
@@ -40,9 +43,40 @@
             "description": "WordPress admin menu page helper class",
             "support": {
                 "issues": "https://github.com/abuyoyo/AdminMenuPage/issues",
-                "source": "https://github.com/abuyoyo/AdminMenuPage/tree/0.28"
+                "source": "https://github.com/abuyoyo/AdminMenuPage/tree/0.29"
             },
-            "time": "2023-10-04T00:00:00+00:00"
+            "time": "2023-10-05T00:00:00+00:00"
+        },
+        {
+            "name": "abuyoyo/metabox",
+            "version": "0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/abuyoyo/MetaBox.git",
+                "reference": "98cb4c30db4c366c0d273985eb9c31ffa1cd78f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/abuyoyo/MetaBox/zipball/98cb4c30db4c366c0d273985eb9c31ffa1cd78f9",
+                "reference": "98cb4c30db4c366c0d273985eb9c31ffa1cd78f9",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WPHelper\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "WordPress metabox helper class",
+            "support": {
+                "issues": "https://github.com/abuyoyo/MetaBox/issues",
+                "source": "https://github.com/abuyoyo/MetaBox/tree/0.8"
+            },
+            "time": "2023-07-18T19:14:03+00:00"
         },
         {
             "name": "abuyoyo/plugincore",
@@ -112,7 +146,7 @@
     "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": false,
-    "prefer-lowest": false,
+    "prefer-lowest": true,
     "platform": [],
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
