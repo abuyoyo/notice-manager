@@ -12,6 +12,6 @@
 	"require":{
 		"abuyoyo/screen-meta-links": "~0.13",
 		"abuyoyo/plugincore": "~0.27",
-		"abuyoyo/adminmenupage": "~0.28"
+		"abuyoyo/adminmenupage": "~0.29"
 	}
 }
