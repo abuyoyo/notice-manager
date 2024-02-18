@@ -22,7 +22,8 @@ class ComposerStaticInita13a895834453aad32a897cc456c73ff
         'WPHelper\\' => 
         array (
             0 => __DIR__ . '/..' . '/abuyoyo/adminmenupage/src',
-            1 => __DIR__ . '/..' . '/abuyoyo/plugincore',
+            1 => __DIR__ . '/..' . '/abuyoyo/metabox',
+            2 => __DIR__ . '/..' . '/abuyoyo/plugincore',
         ),
     );
 
