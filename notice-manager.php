@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Notice Manager
  * Description: Manage notices on WordPress admin pages. Adds 'Notices' screen-meta-link panel to collect notices from page.
- * Version: 0.24
+ * Version: 0.25
  * Author: abuyoyo
  * Author URI: https://github.com/abuyoyo/
  * Plugin URI: https://github.com/abuyoyo/notice-manager
