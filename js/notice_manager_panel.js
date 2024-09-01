@@ -44,6 +44,7 @@ const NoticeManager = function ($) {
 	let dismissNoticesButton
 
 	let haveClosed // set to true on first close/collect
+	let panelObserver
 
 	return {
 		bootstrap: () => {
@@ -192,16 +193,14 @@ const NoticeManager = function ($) {
 			 * When dismissible notices are dismissed, check if any notices are left on page.
 			 * If no notices are left - remove Notice Panel entirely
 			 */
-			$(document).on(
-				"DOMNodeRemoved",
-				"#meta-link-notices-wrap div.notice",
-				() => {
-					notices = panel
-						.find(selectors_all.join(", "))
-						.filter(":visible")
-					NoticeManager.maybeRemoveNoticesPanel()
-				}
-			)
+			panelObserver = new MutationObserver(() => {
+				notices = panel
+					.find(selectors_all.join(", "))
+					.filter(":visible")
+				NoticeManager.maybeRemoveNoticesPanel()
+			});
+			panelObserver.observe(panel.get(0), { childList: true, subtree: true }); // only run once
+
 		},
 
 		addCounter: () => {
