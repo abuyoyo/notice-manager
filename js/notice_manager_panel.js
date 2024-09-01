@@ -2,27 +2,26 @@
  * NoticeManager class/module
  * 
  */
-var NoticeManager = (function ($, document) {
-	let options = window.notice_manager_options
+const NoticeManager = function ($) {
 
-	let selectors_notice = [
+	const selectors_notice = [
 		"div.notice",
 		"div.updated",
 	]
 
-	let selectors_warning = [
+	const selectors_warning = [
 		"div.notice-warning",
 		"div.update-nag",
 	]
 
-	let selectors_error = [
+	const selectors_error = [
 		"div.error",
 		"div.notice-error",
 	]
 
-	let selectors_all = selectors_notice.concat(selectors_warning, selectors_error)
+	const selectors_all = selectors_notice.concat(selectors_warning, selectors_error)
 
-	let selectors_skip = [
+	const selectors_skip = [
 		".inline",
 		".below-h2",
 		".theme-info .notice",
@@ -30,136 +29,133 @@ var NoticeManager = (function ($, document) {
 	]
 
 	// wait function used with autoCollapse
-	let wait = function (ms) {
+	const wait = function (ms) {
 		var dfd = $.Deferred()
 		setTimeout(dfd.resolve, ms) //callback, timeout till callback
 		return dfd.promise()
 	}
 
+	const options = window.notice_manager_options
+
 	let notices
 
 	let button
 	let panel
-	let haveClosed // set to true on first close/collect
 	let dismissNoticesButton
 
-	// bootstrap
-	// some of these need to run BEFORE document.ready - don't know why really
-	button = $("#meta-link-notices")
-	panel = $("#meta-link-notices-wrap")
-	haveClosed = false
-	dismissNoticesButton = $("#meta-link-notices-wrap button.notice-dismiss")
-
-	dismissNoticesButton.on("click", () => {
-		screenMeta.close(panel, button)
-		if (! haveClosed){
-			NoticeManager.collectNotices()
-		}
-		NoticeManager.addCounter()
-	})
-
-	//original wp focus on click function
-	button.on("focus.scroll-into-view", (e) => {
-		if (e.target.scrollIntoView) e.target.scrollIntoView(false)
-	})
-
-	// scroll page to top when closing notice panel
-	// function used to work with $(this)
-	// using e.target instead
-	// not sure if this should perhaps be e.currentTarget
-	button.on("click", (e) => {
-		if ($(e.target).hasClass("screen-meta-active")) {
-			if (haveClosed) {
-				NoticeManager.addCounter()
-			}
-
-			// $(window).scrollTop(true)
-		} else {
-			NoticeManager.removeCounter()
-
-			// wait (500).then(function(){ //still jumpy sometimes - but scrolls to correct position 400 ~ 600
-			// 	$(window).scrollTop(true)
-			// })
-		}
-	})
-
-	/**
-	 * document.on.ready
-	 */
-	$(() => {
-
-		console.log("NoticeManager.on.ready")
-		console.log("options")
-		console.log(options)
-
-		// bootstrap notices
-		// get all notices that are not explicitly marked as `.inline` or `.below-h2`
-		// we add .update-nag.inline for WordPress Update notice
-		notices = $( selectors_all.join(', ') )
-			.not(selectors_skip.join(', '))
-			.add("div.update-nag")
-
-		/**
-		 * Remove panel if there are no notices on this page
-		 */
-		if (options.screen_panel) {
-			NoticeManager.maybeRemoveNoticesPanel()
-		}
-
-		if (options.screen_panel && options.auto_collect) {
-			NoticeManager.collectNotices()
-		} else {
-			if (options.above_title) {
-				NoticeManager.moveAboveTitle()
-			}
-		}
-
-		/**
-		 * auto-open notices panel
-		 */
-		if (button.length && ! options.distraction_free) {
-			panel.toggle()
-			button.addClass("screen-meta-active")
-			screenMeta.open(panel, button)
-		}
-
-		/**
-		 * auto-close notices panel after short delay
-		 * only auto-close if we have collected notices previously
-		 * only auto-close if no error messages
-		 */
-		if (options.auto_collapse && ! options.distraction_free) {
-			wait(4000).then(() => {
-				if (haveClosed && NoticeManager.getNoticesTopPriority() != 'error') {
-					screenMeta.close(panel, button)
-					NoticeManager.addCounter()
-				}
-			})
-		}
-
-		if (options.distraction_free) {
-			NoticeManager.addCounterWhenClosed()
-		}
-
-	}) // end document.on.ready
-
-	// prevent jumpy scrollRestoration on reload page
-	// fixed below on 'beforeunload'
-	// if (history.scrollRestoration) {
-	//	history.scrollRestoration = 'manual'
-	//}
-	/**
-	 * Set history.scrollTop to prevent jump on page refresh when scrollRestoration = auto
-	 */
-	$(window).on("beforeunload", () => {
-		history.pushState(
-			{ scrollTop: document.body.scrollTop },
-			document.title,
-			document.location.pathname
-		)
-	})
+	let haveClosed // set to true on first close/collect
+	let panelObserver
 
 	return {
+		bootstrap: () => {
+
+			// Init selectors
+			button = $("#meta-link-notices")
+			panel = $("#meta-link-notices-wrap")
+			dismissNoticesButton = $("#meta-link-notices-wrap button.notice-dismiss")
+
+			// bootstrap notices
+			// get all notices that are not explicitly marked as `.inline` or `.below-h2`
+			// we add .update-nag.inline for WordPress Update notice
+			notices = $(selectors_all.join(', '))
+				.not(selectors_skip.join(', '))
+				.add("div.update-nag")
+
+			// Set state
+			haveClosed = false
+
+			dismissNoticesButton.on("click", () => {
+				screenMeta.close(panel, button)
+				if (!haveClosed) {
+					NoticeManager.collectNotices()
+				}
+				NoticeManager.addCounter()
+			})
+
+			//original wp focus on click function
+			button.on("focus.scroll-into-view", (e) => {
+				if (e.target.scrollIntoView) e.target.scrollIntoView(false)
+			})
+
+			// scroll page to top when closing notice panel
+			// function used to work with $(this)
+			// using e.target instead
+			// not sure if this should perhaps be e.currentTarget
+			button.on("click", (e) => {
+				if ($(e.target).hasClass("screen-meta-active")) {
+					if (haveClosed) {
+						NoticeManager.addCounter()
+					}
+
+					// $(window).scrollTop(true)
+				} else {
+					NoticeManager.removeCounter()
+
+					// wait (500).then(function(){ //still jumpy sometimes - but scrolls to correct position 400 ~ 600
+					// 	$(window).scrollTop(true)
+					// })
+				}
+			})
+
+			// prevent jumpy scrollRestoration on reload page
+			// fixed below on 'beforeunload'
+			// if (history.scrollRestoration) {
+			//	history.scrollRestoration = 'manual'
+			//}
+			/**
+			 * Set history.scrollTop to prevent jump on page refresh when scrollRestoration = auto
+			 */
+			$(window).on('beforeunload', () => history.pushState(
+					{ scrollTop: document.body.scrollTop },
+					document.title,
+					document.location.pathname
+				)
+			)
+
+			/**
+			 * Remove panel if there are no notices on this page
+			 */
+			if (options.screen_panel) {
+				NoticeManager.maybeRemoveNoticesPanel()
+			}
+
+			if (options.screen_panel && options.auto_collect) {
+				NoticeManager.collectNotices()
+			} else {
+				if (options.above_title) {
+					NoticeManager.moveAboveTitle()
+				}
+			}
+
+			/**
+			 * auto-open notices panel
+			 */
+			if (button.length && !options.distraction_free) {
+				panel.toggle()
+				button.addClass("screen-meta-active")
+				screenMeta.open(panel, button)
+			}
+
+			/**
+			 * auto-close notices panel after short delay
+			 * only auto-close if we have collected notices previously
+			 * only auto-close if no error messages
+			 */
+			if (options.auto_collapse && !options.distraction_free) {
+				wait(4000).then(() => {
+					if (haveClosed && NoticeManager.getNoticesTopPriority() != 'error') {
+						screenMeta.close(panel, button)
+						NoticeManager.addCounter()
+					}
+				})
+			}
+
+			if (options.distraction_free) {
+				NoticeManager.addCounterWhenClosed()
+			}
+
+		},
+
 		getNotices: () => notices,
 
 		getNoticesTopPriority: () => {
@@ -197,20 +193,18 @@ var NoticeManager = (function ($, document) {
 			 * When dismissible notices are dismissed, check if any notices are left on page.
 			 * If no notices are left - remove Notice Panel entirely
 			 */
-			$(document).on(
-				"DOMNodeRemoved",
-				"#meta-link-notices-wrap div.notice",
-				() => {
-					notices = panel
-						.find(selectors_all.join(", "))
-						.filter(":visible")
-					NoticeManager.maybeRemoveNoticesPanel()
-				}
-			)
+			panelObserver = new MutationObserver(() => {
+				notices = panel
+					.find(selectors_all.join(", "))
+					.filter(":visible")
+				NoticeManager.maybeRemoveNoticesPanel()
+			});
+			panelObserver.observe(panel.get(0), { childList: true, subtree: true }); // only run once
+
 		},
 
 		addCounter: () => {
-			if (!button.children('.plugin-count').length){
+			if (!button.children('.plugin-count').length) {
 				button.append(
 					$("<span/>").text(notices.filter(":visible").length).attr({
 						class: "plugin-count",
@@ -223,7 +217,7 @@ var NoticeManager = (function ($, document) {
 		 * cannot rely on filter(:visible)
 		 */
 		addCounterWhenClosed: () => {
-			if (!button.children('.plugin-count').length){
+			if (!button.children('.plugin-count').length) {
 				button.append(
 					$("<span/>").text(notices.length).attr({
 						class: "plugin-count",
@@ -247,7 +241,7 @@ var NoticeManager = (function ($, document) {
 				$("#meta-link-notices-link-wrap").detach()
 				$("#meta-link-notices-wrap").detach()
 
-				if ($("#screen-meta-links").children().length == 0){
+				if ($("#screen-meta-links").children().length == 0) {
 					$("#screen-meta-links").detach()
 				}
 			}
@@ -262,4 +256,6 @@ var NoticeManager = (function ($, document) {
 			notices.insertBefore(".wrap:first")
 		},
 	}
-}(jQuery,document) )
+}(jQuery);
+
+jQuery(NoticeManager.bootstrap);

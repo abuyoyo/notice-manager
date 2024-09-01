@@ -1,5 +1,15 @@
 # Notice Manager Changelog
 
+## 0.26
+
+Release date: Sep 1 2024
+
+### Changed
+- Use Mutation Observer instead of deprecated `DOMNodeRemoved` event.
+
+### Added
+- Add method `NoticeManager.bootstrap()` to initialize Notice manager.
+
 ## 0.25
 
 Release date: Feb 18 2024
