@@ -1,5 +1,12 @@
 # Notice Manager Changelog
 
+## 0.27
+
+Release date: Sep 7 2024
+
+### Dependencies
+- Composer config: `prepend-autoloader: false` - Give precedence to other composer installations if present.
+
 ## 0.26
 
 Release date: Sep 1 2024
